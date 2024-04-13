@@ -55,7 +55,7 @@ const CardEmpleado = ({ }) => {
         const nroEmpleado = empleado.Nro_empledo;
         const nombre_Apellidos = empleado.Nombre_Apellidos;
         try {
-            const qrData = `http://localhost:3000/Dashboard/Usuarios/${nroEmpleado}`;
+            const qrData = `http://www.ctmseccion1.com/Dashboard/Usuarios/${nroEmpleado}`;
             const qrImage = await QRCode.toDataURL(qrData);
 
             // Crear un elemento <a> para descargar la imagen
