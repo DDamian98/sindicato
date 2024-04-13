@@ -14,7 +14,7 @@ const MenuItem = ({ icon, text, isExpanded }) => (
 );
 
 const DashboardMenu = () => {
-    const [isExpanded, setIsExpanded] = useState(true);
+    const [isExpanded, setIsExpanded] = useState(false);
 
     const menuItems = [
         { text: 'Inicio', icon: <IoMdHome className="w-5 h-5" />, link: '/Dashboard' },
