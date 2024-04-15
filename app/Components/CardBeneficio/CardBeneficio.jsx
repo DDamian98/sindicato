@@ -2,13 +2,14 @@
 
 // Beneficios.js
 import React, { useEffect, useState } from "react";
-import { Card } from "flowbite-react";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import QRCode from 'qrcode';
 
 const CardBeneficio = (idEmpleado) => {
 
     const [empleadosData, setEmpleadosData] = useState([]);
+    const [qrImage, setQrImage] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -43,16 +44,22 @@ const CardBeneficio = (idEmpleado) => {
                 console.error("Error al obtener los datos del Excel:", error);
             }
         };
+        generateQR(idEmpleado.idEmpleado);
 
         fetchData();
-        const intervalId = setInterval(fetchData, 3000);  // Actualiza los datos cada 3 segundos
-
-        return () => clearInterval(intervalId);
     }, [idEmpleado]);
 
+    const generateQR = async (nroEmpleado) => {
+        try {
+            const qrData = `http://www.ctmseccion1.com/Dashboard/Usuarios/${nroEmpleado}`;
+            const generatedQR = await QRCode.toDataURL(qrData);
+            setQrImage(generatedQR);
+            console.log("QR generado:", generatedQR);
 
-
-
+        } catch (error) {
+            console.error("Error al generar el código QR:", error);
+        }
+    };
 
     return (
         <motion.div
@@ -69,6 +76,7 @@ const CardBeneficio = (idEmpleado) => {
                             Nombre={empleado.Nombre_Apellidos}
                             Empresa={empleado.Empresa}
                             Nro_empleado={empleado.Nro_empleado}
+                            qrImagen={qrImage}
                         />
                     ))}
                 </div>
@@ -77,7 +85,7 @@ const CardBeneficio = (idEmpleado) => {
     );
 };
 
-const CardB = ({ Nombre, Empresa, Nro_empleado }) => {
+const CardB = ({ Nombre, Empresa, Nro_empleado, qrImagen }) => {
     return (
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
             <div className=" bg-bgadmin transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-2xl overflow-hidden bg-bgadminflex items-center ">
@@ -95,11 +103,11 @@ const CardB = ({ Nombre, Empresa, Nro_empleado }) => {
                             <h3 className="px-2 mx-10 mt-2 rounded-lg font-bold tracking-widest bg-primary text-white text-center">TARJETA DE BENEFICIOS</h3>
                             <div className="flex items-center justify-center gap-2 ">
                                 <h2 className="text-bgadmin text-lg font-bold">Nombre:</h2>
-                                <textarea value={Nombre} className=" w-36 h-auto  bg-gray-300 border-none rounded-lg text-sm resize-none" disabled style={{ minHeight: '20px' }} />
+                                <textarea value={Nombre} className=" w-40 h-auto   bg-gray-300 border-none rounded-lg text-sm resize-none " disabled style={{ minHeight: '40px' }} />
                             </div>
                             <div className="flex items-center justify-center gap-2 mb-2 ">
                                 <h2 className="text-bgadmin text-lg font-bold ">Empresa:</h2>
-                                <textarea value={Empresa} className=" w-36 bg-gray-300 border-none rounded-lg text-sm resize-none" disabled style={{ minHeight: '10px' }} />
+                                <textarea value={Empresa} className=" w-40 h-auto bg-gray-300 border-none rounded-lg text-sm resize-none" disabled style={{ minHeight: '10px' }} />
                             </div>
 
                         </div>
@@ -113,7 +121,7 @@ const CardB = ({ Nombre, Empresa, Nro_empleado }) => {
                         <div className=" bg-white w-full mb-4 items-center justify-center gap-4 p-4 " >
                             <div className=" flex gap-4 flex-wrap items-center justify-center">
                                 <div className="rounded-lg ">
-                                    <Image src="/images/qr.jpg" alt="Codigo del Empleado" width={140} height={160} className=" overflow-hidden rounded-lg"></Image>
+                                    <Image src={qrImagen} alt="Codigo del Empleado" width={140} height={160} className="overflow-hidden rounded-lg" />
                                 </div>
                                 <div className="flex flex-col mb-2 flex-wrap mx-8">
                                     <h2 className="text-bgadmin text-lg font-bold ">Categoria:</h2>

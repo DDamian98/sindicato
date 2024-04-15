@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import {
-    IoMdHome, IoMdPerson, IoIosMenu, IoIosLogOut, IoIosAlbums
+    IoMdHome, IoMdPerson, IoIosMenu, IoIosLogOut, IoIosAlbums, IoIosBusiness
 } from 'react-icons/io';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -18,7 +18,7 @@ const DashboardMenu = () => {
 
     const menuItems = [
         { text: 'Inicio', icon: <IoMdHome className="w-5 h-5" />, link: '/Dashboard' },
-        { text: 'Empresa', icon: <IoMdPerson className="w-5 h-5" />, link: '/Dashboard/Empresa' },
+        { text: 'Empresa', icon: <IoIosBusiness className="w-5 h-5" />, link: '/Dashboard/Empresa' },
         { text: 'Cupon', icon: <IoIosAlbums className="w-5 h-5" />, link: '/Dashboard/Cupon' },
         { text: 'Usuarios', icon: <IoMdPerson className="w-5 h-5" />, link: '/Dashboard/Usuarios' },
         { text: 'Salir', icon: <IoIosLogOut className="w-5 h-5" />, link: '/Login' },

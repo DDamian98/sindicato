@@ -1,6 +1,7 @@
 'use client'
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
+import QRCode from 'qrcode';
 
 const CuponCard = ({ tipoSeleccionado, user }) => {
     const [cuponesData, setCuponesData] = useState([]);
