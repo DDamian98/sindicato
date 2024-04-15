@@ -28,7 +28,7 @@ const DashboardMenu = () => {
     return (
         <div className="flex min-h-screen bg-gray-800 text-white h-auto">
             {/* Sidebar */}
-            <div className={`bg-bgadmin  text-white transition-all duration-300 ${isExpanded ? 'w-64' : 'w-20'} flex flex-col justify-between`}>
+            <div className={`bg-bgadmin  text-white transition-all duration-300 ${isExpanded ? 'w-64' : 'w-12'} flex flex-col justify-between`}>
                 {/* Top Section */}
                 <div className='sticky top-0'>
                     <div className="flex items-center justify-center p-2">
