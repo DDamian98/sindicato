@@ -6,7 +6,10 @@ const Login = () => {
     const [tipoUsuario, setTipoUsuario] = useState('empleado');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    localStorage.removeItem('NroEmpleado');
+
+    useEffect(() => {
+        localStorage.removeItem('NroEmpleado');
+    }, []);
 
     const handleLogin = async (event) => {
         event.preventDefault();
@@ -27,8 +30,6 @@ const Login = () => {
             }
 
             const data = await response.json();
-            console.log('Respuesta de la API:', data);
-            console.log('Usuario autenticado:', data.user.empleados[0].Correo);
             if (data.user && data.user.empleados.length > 0) {
                 alert('Login exitoso');
                 localStorage.setItem('NroEmpleado', data.user.empleados[0].Nro_empleado);
