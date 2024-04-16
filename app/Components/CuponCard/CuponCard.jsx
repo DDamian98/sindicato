@@ -10,20 +10,21 @@ const CuponCard = ({ tipoSeleccionado, user }) => {
         const fetchData = async () => {
             try {
                 const id = "1ksAELSvZG9g4CPA-BVKF7KB3M-j4ZcWnrrkVu6kj1I0";
-                const range = "Cupon!A:F";
+                const range = "Cupon!A:J";
                 const apiKey = "AIzaSyCOH_ihCt7Q8g3NF_1biASZAs-7cOxoE1E";
                 const response = await fetch(
                     `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${apiKey}`
                 );
                 const data = await response.json();
-
                 const cupones = data.values
                     .slice(1)
                     .map((row) => ({
                         Codigo: row[0],
                         Nombre: row[1],
                         Tipo: row[2],
-                        Empleado: row[3],
+                        Producto: row[3],
+                        Promocion: row[4],
+                        Empleado: row[5],
                         Empresa: row[4],
                         Estado: row[5],
                     }))
@@ -34,6 +35,9 @@ const CuponCard = ({ tipoSeleccionado, user }) => {
                     ).filter((cupones) =>
                         cupones.Empleado === user
                     );
+                console.log("Usuario:", user);
+                console.log("Tipo:", tipoSeleccionado);
+
 
                 setCuponesData(cupones);
             } catch (error) {
@@ -63,7 +67,7 @@ const CuponCard = ({ tipoSeleccionado, user }) => {
     );
 };
 
-const Card = ({ codigo, nombre, tipo, empleado, empresa, estado }) => {
+const Card = ({ tipo, empleado, estado }) => {
     return (
         <div className="bg-primary flex items-center overflow-hidden transition duration-300 ease-in-out transform  rounded-lg hover:-translate-y-1 hover:shadow-2xl">
             <div className="flex flex-col border-4 border-dotted border-white rounded-lg m-4">
