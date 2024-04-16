@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NavDashBoard from '../Components/Menu/NavDashBoard'
 import Representantes from '../Components/Representantes/Representantes'
 import CardBeneficio from '../Components/CardBeneficio/CardBeneficio'
@@ -8,6 +8,16 @@ import CuponCard from '../Components/CuponCard/CuponCard'
 
 export default function Dashboard() {
     const [tipoSeleccionado, setTipoSeleccionado] = useState('Todos');
+
+    useEffect(() => {
+        const nroEmpleado = localStorage.getItem('NroEmpleado');
+        if (!nroEmpleado) {
+            window.location.href = '/Login';
+
+        }
+        // Aquí puedes usar nroEmpleado ya que estás seguro de que estás en el cliente
+        console.log('Número de empleado:', nroEmpleado);
+    }, []); // El array vacío asegura que este efecto se ejecute solo una vez después del montaje inicial
 
     // Función para manejar el cambio en el select
     const handleCategoryChange = (event) => {

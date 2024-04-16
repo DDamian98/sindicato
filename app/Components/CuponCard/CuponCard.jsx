@@ -42,9 +42,6 @@ const CuponCard = ({ tipoSeleccionado, user }) => {
         };
 
         fetchData();
-        const intervalId = setInterval(fetchData, 3000);  // Actualiza los datos cada 3 segundos
-
-        return () => clearInterval(intervalId);
     }, [tipoSeleccionado, user]);
 
     return (
