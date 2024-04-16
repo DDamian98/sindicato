@@ -95,7 +95,7 @@ export async function POST(req) {
                 empleados.Correo === email && empleados.Correo === password,
             );
         console.log('Usuario autenticado123123:', empleados);
-        if (empleados) {
+        if (empleados.length > 0) {
             console.log('Usuario autenticado:', empleados);
             const correo = empleados.Correo;
             console.log("Correo del usuario", correo);

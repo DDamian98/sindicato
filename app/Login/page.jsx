@@ -36,8 +36,9 @@ const Login = () => {
                 window.location.href = '/Dashboard';
             }
         } catch (error) {
-            alert('Login fallido');
+
             console.error('Error en la autenticación:', error);
+            alert('Login fallido');
         }
     };
 
@@ -58,11 +59,11 @@ const Login = () => {
                         </div>
                         <div>
                             <label htmlFor="email" className="sr-only">Correo Electrónico</label>
-                            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Correo Electrónico" className="block w-full px-4 py-3 mb-2 border rounded-md text-secundary" />
+                            <input value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Correo Electrónico" className="block w-full px-4 py-3 mb-2 border rounded-md text-secundary" required />
                         </div>
                         <div>
                             <label htmlFor="password" className="sr-only">Contraseña</label>
-                            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Contraseña" className="block w-full px-4 py-3 mb-2 border rounded-md text-secundary" />
+                            <input value={password} onChange={(e) => setPassword(e.target.value)} type="password" placeholder="Contraseña" className="block w-full px-4 py-3 mb-2 border rounded-md text-secundary" required />
                         </div>
                         <button type="submit" className="w-full px-4 py-3 mt-4 bg-red-700 hover:bg-red-600 text-white rounded-md  transition-colors">Ingresar</button>
 
