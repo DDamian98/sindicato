@@ -33,6 +33,8 @@ const Login = () => {
             if (data.user && data.user.empleados.length > 0) {
                 alert('Login exitoso');
                 localStorage.setItem('NroEmpleado', data.user.empleados[0].Nro_empleado);
+                localStorage.setItem('Nombre_Apellidos', data.user.empleados[0].Nombre_Apellidos);
+
                 window.location.href = '/Dashboard';
             }
         } catch (error) {
@@ -47,7 +49,7 @@ const Login = () => {
         <div className="flex items-center justify-center min-h-screen bg-gray-50">
             <div className="flex flex-col lg:flex-row w-full max-w-4xl mx-auto bg-white shadow-lg rounded-lg overflow-hidden">
                 <div className="w-full lg:w-3/5 p-5">
-                    <h2 className="text-3xl font-semibold text-center text-gray-700">Sistema Cupon</h2>
+                    <h2 className="text-3xl font-semibold text-center text-gray-700">Sistema Beneficio</h2>
                     <p className="text-gray-600 mt-2 text-center">Bienvenido, por favor ingrese sus datos.</p>
                     <form className="space-y-4 mt-6" onSubmit={handleLogin}>
                         <div>
@@ -71,7 +73,7 @@ const Login = () => {
                 </div>
                 <div className="w-full lg:w-2/5 h-80 lg:h-auto  flex items-center justify-center p-2 relative">
                     <Image
-                        src={'/images/Logo_CTM.png'}
+                        src={'/images/Logo_CTM.webp'}
                         alt="Confederación de Trabajadores de México"
                         layout='fill'
                         objectFit='contain'

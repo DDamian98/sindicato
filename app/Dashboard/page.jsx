@@ -9,12 +9,14 @@ import CuponCard from '../Components/CuponCard/CuponCard'
 export default function Dashboard() {
     const [tipoSeleccionado, setTipoSeleccionado] = useState('Todos');
     const [nroEmpleado, setNroEmpleado] = useState('');
+    const [Nombre_Apellidos, setNombre_Apellidos] = useState('');
     useEffect(() => {
         setNroEmpleado(localStorage.getItem('NroEmpleado'));
+        setNombre_Apellidos(localStorage.getItem('Nombre_Apellidos'));
+
         const nro = localStorage.getItem('NroEmpleado');
         if (!nro) {
             window.location.href = '/Login';
-
         }
         // Aquí puedes usar nroEmpleado ya que estás seguro de que estás en el cliente
         console.log('Número de empleado:', nroEmpleado);
@@ -28,7 +30,7 @@ export default function Dashboard() {
 
 
         <div className='flex bg-gray-200  ' >
-            <NavDashBoard />
+            <NavDashBoard Nombre_Apellidos={Nombre_Apellidos} />
             <div className=' flex-grow '>
                 <div className='w-full flex flex-col items-center just h-18 shadow-xl justify-center bg-bgadmin'>
                     <h1 className='text-white text-base text-center lg:text-2xl '>FEDERACIÓN REGIONAL DE TRABAJADORES</h1>

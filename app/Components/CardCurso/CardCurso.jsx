@@ -70,11 +70,16 @@ const CursoCard = ({ nombre, imagen, descripcion }) => {
         />
       </div>
       <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black to-transparent text-white">
-        <h2 className="text-2xl font-bold">{nombre}</h2>
-        <p className="text-sm mt-2">{descripcion}</p>
-        <div className="flex items-center justify-center pt-4">
-          <button className="px-5 py-2 bg-primary text-white rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition duration-300 ease-in-out">
+        <h2 className=" text-xl font-bold">{nombre}</h2>
+        <p className="text-sm mt-2">
+          {descripcion.length > 100 ? descripcion.substring(0, 100) + "..." : descripcion}
+        </p>
+        <div className="flex items-center justify-center pt-4 flex-wrap gap-2">
+          <button className="p-1 bg-primary text-white rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition duration-300 ease-in-out">
             ¡Regístrate!
+          </button>
+          <button className="p-1 bg-primary text-white rounded-md hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 transition duration-300 ease-in-out">
+            Ver más
           </button>
         </div>
       </div>

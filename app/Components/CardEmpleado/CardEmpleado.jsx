@@ -131,14 +131,14 @@ const CardEmpleado = ({ }) => {
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 {empleado.Direccion}
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 gap-4 flex">
                                                 <button
                                                     onClick={() => handleGenerateQR(empleado)}
                                                     className="bg-primary hover:bg-primary/90 text-white  p-2 "
                                                 >
                                                     Generar QR
                                                 </button>
-                                                <Link href={`/Dashboard/Usuarios/${empleado.Nro_empledo}`}>
+                                                <Link href={`/Dashboard/Usuarios/${empleado.Nro_empledo}`} className="bg-bgadmin p-2 text-white hover:bg-bgadmin/90">
                                                     Ver Detalles
                                                 </Link>
                                             </td>

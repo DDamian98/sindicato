@@ -10,7 +10,7 @@ const Nav = () => {
       <Navbar fluid={true} rounded={true} className='max-w-7xl mx-auto'>
         <Navbar.Brand href="/">
           <Image
-            src="/images/Logo_CTM.png"
+            src="/images/Logo_CTM.webp"
             width={36}
             height={36}
             alt="Confederación de Trabajadores de México"

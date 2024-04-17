@@ -77,7 +77,7 @@ const Nosotros = () => {
             </p>
           </div>
           <div className="text-center mx-auto ">
-            <Image src="/images/Logo_CTM.png" width={400} height={400} alt="curso">
+            <Image src="/images/Logo_CTM.webp" width={400} height={400} alt="curso">
             </Image>
           </div>
         </div>

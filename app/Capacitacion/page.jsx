@@ -86,7 +86,7 @@ const Capacitacion = () => {
           <div className="grid grid-cols-1 md:grid-cols-1">
             <div className="absolute opacity-15 inset-x-0 mx-auto flex justify-center ">
               <Image
-                src="/images/Logo_CTM.png"
+                src="/images/Logo_CTM.webp"
                 width={220}
                 height={220}
                 objectFit="cover"

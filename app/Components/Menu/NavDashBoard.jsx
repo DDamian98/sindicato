@@ -13,7 +13,7 @@ const MenuItem = ({ icon, text, isExpanded }) => (
     </div>
 );
 
-const DashboardMenu = () => {
+const DashboardMenu = ({ Nombre_Apellidos }) => {
     const [isExpanded, setIsExpanded] = useState(false);
 
     const menuItems = [
@@ -38,12 +38,10 @@ const DashboardMenu = () => {
                     {isExpanded && (
                         <div>
                             <div className="flex items-center p-2  space-x-2">
-                                <Image src="/images/Logo_CTM.png" alt="User" width={40} height={40} className="rounded-full" />
-                                <span className="font-medium">Nombre de Usuario</span>
+                                <Image src="/images/Logo_CTM.webp" alt="User" width={40} height={40} className="rounded-full" />
+                                <span className="font-medium text-center">{Nombre_Apellidos}</span>
                             </div>
-                            <div className='flex items-center justify-center'>
-                                <span className="font-medium text-xs text-gray-300">Tipo de Usuario</span>
-                            </div>
+
                         </div>
                     )}
 

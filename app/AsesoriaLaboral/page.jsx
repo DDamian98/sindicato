@@ -74,7 +74,7 @@ const AsesoriaLaboral = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-1">
             <div className="absolute opacity-15 inset-x-0 mx-auto flex justify-center ">
-              <Image src="/images/Logo_CTM.png" width={300} height={300} objectFit="cover" alt="Confederación de Trabajadores de México" className="mx-auto text-center">
+              <Image src="/images/Logo_CTM.webp" width={300} height={300} objectFit="cover" alt="Confederación de Trabajadores de México" className="mx-auto text-center">
               </Image>
             </div>
 

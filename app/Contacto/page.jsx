@@ -2,11 +2,11 @@
 import React from "react";
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { Button, Footer } from 'flowbite-react';
+import { Button } from 'flowbite-react';
 import styles from './Contacto.module.css';
 import Nav from "../Components/Menu/Nav";
 import Social from "../Components/Social/Social";
-
+import Footer from "../Components/Footer/Footer";
 const Contacto = () => {
     const fadeInUpVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -109,11 +109,12 @@ const Contacto = () => {
                             </Button>
 
                         </motion.div>
+
                     </div>
                 </div>
+                <Footer />
             </div>
-            <Social />
-            <Footer />
+
         </div>
     );
 };
