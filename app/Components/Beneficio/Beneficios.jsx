@@ -10,22 +10,26 @@ const beneficiosData = [
   {
     imageUrl: "https://flowbite.com/docs/images/carousel/carousel-1.svg",
     titulo: "Beneficio 1",
-    descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi."
+    descripcion: "Apoyo en la economía familiar de nuestros compañeros sindicalizados"
   },
   {
     imageUrl: "https://flowbite.com/docs/images/carousel/carousel-2.svg",
     titulo: "Beneficio 2",
-    descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi."
+    descripcion: "Eficientar el tiempo  de búsqueda de productos y servicios, mediante nuestro sistema, que permitirá realizar una solicitud de interés mediante un clic."
   },
   {
     imageUrl: "https://flowbite.com/docs/images/carousel/carousel-3.svg",
     titulo: "Beneficio 3",
-    descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi."
+    descripcion: "Fortalecer a empresas mexicanas para posicionar su marca y mostrar la calidad de productos y servicios."
   },
   {
     imageUrl: "https://flowbite.com/docs/images/carousel/carousel-4.svg",
     titulo: "Beneficio 4",
-    descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi."
+    descripcion: "Colaboración con organizaciones, despachos e instituciones educativas que apoyan en técnicas, herramientas y experiencia para nuestros compañeros sindicalizados."
+  }, {
+    imageUrl: "https://flowbite.com/docs/images/carousel/carousel-2.svg",
+    titulo: "Beneficio 2",
+    descripcion: "Reforzamos la identidad y satisfacción laboral de nuestros trabajadores con nuestras empresas afiliadas."
   }
 ];
 
@@ -39,7 +43,7 @@ const Beneficios = () => {
     >
       <div className="container mx-auto text-secundary">
         <h2 className="text-3xl font-semibold text-center mb-8">Nuestros Beneficios</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center mx-auto place-content-center place-items-center">
           {beneficiosData.map((beneficio, index) => (
             <BeneficioCard
               key={index}
@@ -56,11 +60,10 @@ const Beneficios = () => {
 
 const BeneficioCard = ({ imageUrl, titulo, descripcion }) => {
   return (
-    <Card className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-lg overflow-hidden bg-white">
-      <div className="flex flex-col items-center p-4">
+    <Card className="w-60  h-80 transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-lg overflow-hidden bg-white">
+      <div className="flex flex-col flex-grow place-items-center  p-2">
         <Image src={imageUrl} alt={titulo} className="mb-2 rounded-full shadow-sm" width={96} height={96} objectFit="cover" />
         <div>
-          <div className="text-lg font-semibold text-center text-primary">{titulo}</div>
           <p className="text-sm text-center text-gray-700 mt-2">{descripcion}</p>
         </div>
       </div>

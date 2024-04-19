@@ -12,6 +12,7 @@ import CardEventoDetail from './Components/CardEvento/CardEventoDetail';
 import Nav from './Components/Menu/Nav';
 import Social from './Components/Social/Social';
 import Footer from './Components/Footer/Footer';
+import AlianzasEstrategicas from './Components/AlianzasEstrategicas/AlianzasEstrategicas';
 
 export default function Home() {
   const containerVariants = {
@@ -62,6 +63,7 @@ export default function Home() {
       </motion.div>
       <main>
         <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8 bg-white">
+          <AlianzasEstrategicas />
           <Beneficios />
         </div>
         <motion.div
@@ -122,7 +124,7 @@ export default function Home() {
           viewport={{ once: true }}
           variants={fromLeftVariants}
         >
-          <div className='max-w-7xl mx-auto grid grid-cols-2  gap-10 ' >
+          <div className='max-w-7xl mx-auto flex flex-wrap gap-10 items-center justify-center ' >
             <CardNoticiaDetail />
             <CardEventoDetail />
 
@@ -136,8 +138,8 @@ export default function Home() {
             viewport={{ once: true }}
             variants={fromRightVariants}
           >
-            <Enlaces />
           </motion.div>
+          <Enlaces />
 
         </div>
         <motion.div

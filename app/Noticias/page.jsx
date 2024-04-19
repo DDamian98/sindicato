@@ -74,6 +74,15 @@ const Noticias = () => {
           variants={fromLeftVariants}
           className="text-secundary/80"
         >
+          <div className=" max-w-7xl grid grid-cols-1 md:grid-cols-1 mx-auto mb-6 ">
+            <div className="absolute opacity-15 inset-x-0 mx-auto flex justify-center ">
+
+            </div>
+
+            <h2 className="text-2xl font-semibold mb-2 border-l-4  border-border pl-3 z-20">Noticias</h2>
+            <p className="text-lg pl-3 text-secundary/80 z-20">Generamos contenido laboral que permite actualizar a nuestros compañeros sindicalizados, sobre temas de interés como prima vacacional, prestaciones, cambios en la ley de trabajo, actualizaciones y demás.
+            </p>
+          </div>
           <CardNoticia />
         </motion.div>
         <motion.div

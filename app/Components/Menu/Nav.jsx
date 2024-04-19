@@ -18,9 +18,9 @@ const Nav = () => {
           />
         </Navbar.Brand>
         <Navbar.Toggle />
-        <Navbar.Collapse>
-          <div className="flex items-center justify-between w-full">
-            <div className="flex items-center space-x-4"> {/* Añade espacio entre los enlaces */}
+        <Navbar.Collapse >
+          <div className="flex max-md:flex-col max-md:items-start items-center justify-between w-full">
+            <div className="flex  max-md:flex-col items-center  space-x-4">
               <Navbar.Link href="/" className='hover:text-primary'>
                 <span className='hover:text-primary'>Inicio</span>
 
@@ -30,7 +30,7 @@ const Nav = () => {
 
               </Navbar.Link>
               <Dropdown />
-              <Navbar.Link className="hover:text-primary" href="#">
+              <Navbar.Link className="hover:text-primary" href="/ProgramaLealtad">
                 <span className='hover:text-primary'>Programa de Lealtad</span>
               </Navbar.Link>
               <Dropdown2 />

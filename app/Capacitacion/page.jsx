@@ -139,7 +139,7 @@ const Capacitacion = () => {
             initial="offscreen"
             whileInView="onscreen"
             viewport={{ once: true }}
-            variants={fromRightVariants}>
+            variants={fromLeftVariants}>
             <CardCurso tipoSeleccionado={tipoSeleccionado} />
           </motion.div>
         </div>

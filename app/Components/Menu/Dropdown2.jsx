@@ -48,11 +48,18 @@ const Dropdown2 = () => {
             Noticias
           </a>
           <a
-            href="#"
+            href="/AlianzasEstrategicas"
             className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 hover:text-red-600 dark:hover:bg-gray-700 dark:hover:text-red-600"
             role="menuitem"
           >
             Alianzas estratégicas
+          </a>
+          <a
+            href="/BolsaTrabajo"
+            className="block px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 hover:text-red-600 dark:hover:bg-gray-700 dark:hover:text-red-600"
+            role="menuitem"
+          >
+            Bolsa de Trabajo
           </a>
         </div>
       )}

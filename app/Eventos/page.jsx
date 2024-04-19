@@ -70,6 +70,25 @@ const Eventos = () => {
             {/* Contenido principal */}
             <div className="max-w-7xl mx-auto gap-8 my-10 px-10 text-secundary md:pt-5">
                 {/* Sección de eventos */}
+                <motion.div
+                    initial="offscreen"
+                    whileInView="onscreen"
+                    viewport={{ once: true }}
+                    variants={fromLeftVariants}
+                >
+                    <div className=" max-w-5xl grid grid-cols-1 md:grid-cols-1 mx-auto mb-6 ">
+                        <div className="absolute opacity-15 inset-x-0 mx-auto flex justify-center ">
+                            <Image src="/images/Logo_CTM.webp" width={200} height={200} objectFit="cover" alt="Confederación de Trabajadores de México" className="mx-auto text-center max-md:hidden">
+                            </Image>
+                        </div>
+
+                        <h2 className="text-2xl font-semibold mb-2 border-l-4  border-border pl-3 z-20">Eventos</h2>
+                        <p className="text-lg pl-3 text-secundary/80 z-20">En colaboración con nuestras empresas afiliadas, aliados comerciales y estratégicos realizamos diferentes eventos que van dirigidos para nuestros compañeros sindicalizados para lograr una satisfacción laboral . Algunos de los eventos son: convivencia en fin de año, convenios de colaboración, activaciones de empresas para ofrecer productos y servicios, campañas de prevención para la salud, reuniones , entre otros.
+                            En apoyo a nuestras empresas realizamos feria del trabajo con el objetivo de ofrecerles fuentes de empleo a las personas de Querétaro y de otros estados. Con la finalidad de tener capital humano calificado en las empresas.
+                        </p>
+                    </div>
+                </motion.div>
+
                 <section>
                     <motion.div
                         initial="offscreen"
