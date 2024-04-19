@@ -101,7 +101,7 @@ const Contacto = () => {
                                 <p className="text-white">Correo: seccion1.ctm@gmail.com</p>
                             </div>
                             <Button
-                                href="https://www.google.com"
+                                href="https://forms.gle/2gcx6NL4TKqNHGrx6"
                                 target="_blank"
                                 className=" bg-red-700 hover:bg-red-600 mt-4 self-center text-white w-full sm:w-auto"
                             >

@@ -19,6 +19,7 @@ module.exports = {
         white: '#ffffff',
         bgprimary: '#174c9c',
         border: '#ee9e21',
+        cupon: '#f29120',
         bgadmin: '#202e55',
       },
     },

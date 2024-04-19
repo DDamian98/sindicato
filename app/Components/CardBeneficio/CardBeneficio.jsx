@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import QRCode from 'qrcode';
+import styles from "./styles.module.css"
 
 const CardBeneficio = (idEmpleado) => {
 
@@ -69,7 +70,7 @@ const CardBeneficio = (idEmpleado) => {
             className="mx-auto  text-secundary pb-10"
         >
             <div className="container mx-auto text-secundary">
-                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-8 place-content-center">
+                <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-2 place-items-center">
                     {empleadosData.map((empleado, index) => (
                         <CardB
                             key={index}
@@ -87,60 +88,59 @@ const CardBeneficio = (idEmpleado) => {
 
 const CardB = ({ Nombre, Empresa, Nro_empleado, qrImagen }) => {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-4">
-            <div className=" bg-bgadmin transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-2xl overflow-hidden bg-bgadminflex items-center ">
-                <div className="flex flex-col">
-                    <div className="flex p-4">
-                        <Image src="/images/Logo_CTM.png" alt="Logo" width={60} height={60} objectFit="contain" />
-                        <div className="flex flex-col items-center justify-center">
-                            <h2 className=" text-[12px] font-bold  text-white text-center" >FEDERACIÓN REGIONAL DE TRABAJADORES</h2>
-                            <h3 className="text-[12px] text-center text-primary font-bold">SECCIÓN 1</h3>
-                            <h2 className=" text-[12px] font-bold  text-white text-center" >DEL ESTADO DE QUERETARO, C.T.M.</h2>
-                        </div>
+        <div className="grid grid-cols-1 gap-1 place-content-center">
+            <div className={`w-[440px] max-[480px]:w-[300px] flex flex-col`}>
+                <div className={`relative transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-md overflow-hidden h-[300px] max-sm:h[280px] w-full `}>
+                    <div className="absolute  z-20 top-0 left-0 right-0 w-full h-1/2 ">
+                        <Image src='/images/tarjet.png' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
                     </div>
-                    <div>
-                        <div className="flex flex-col bg-white w-full mb-4 gap-2" >
-                            <h3 className="px-2 mx-10 mt-2 rounded-lg font-bold tracking-widest bg-primary text-white text-center">TARJETA DE BENEFICIOS</h3>
-                            <div className="flex items-center justify-center gap-2 ">
-                                <h2 className="text-bgadmin text-lg font-bold">Nombre:</h2>
-                                <textarea value={Nombre} className=" w-40 h-auto   bg-gray-300 border-none rounded-lg text-sm resize-none " disabled style={{ minHeight: '40px' }} />
-                            </div>
-                            <div className="flex items-center justify-center gap-2 mb-2 ">
-                                <h2 className="text-bgadmin text-lg font-bold ">Empresa:</h2>
-                                <textarea value={Empresa} className=" w-40 h-auto bg-gray-300 border-none rounded-lg text-sm resize-none" disabled style={{ minHeight: '10px' }} />
-                            </div>
+                    <div className="absolute top-9 left-0 right-0 w-full h-[250px]   max-[480px]:h-[240px]   max-[480px]:top-12">
+                        <Image src='/images/Fondo.png' objectFit="cover" alt="Tarjeta Beneficio" fill></Image>
+                    </div>
+                    <div className="absolute bottom-0 left-0 right-0  max-[480px]:hidden w-full h-[180px] max-[480px]:h-[160px] ">
+                        <Image src='/images/Photo.png' objectFit="" alt="Tarjeta" fill></Image>
+                    </div>
+                    <div className="absolute bottom-0 min-[480px]:hidden left-0 right-0  w-full h-[150px]">
+                        <Image src='/images/Photo.png' objectFit="" alt="Tarjeta" fill></Image>
+                    </div>
 
-                        </div>
+                    <div className="absolute bottom-2 left-[16px] right-0 max-[480px]:hidden rounded-full w-[160px] h-[160px] max-[480px]:w-[120px] ">
+                        <Image src='/images/Perfil.jpg' objectFit="cover" alt="Tarjeta" fill className="rounded-full"></Image>
+                    </div>
+                    <div className="absolute bottom-[10px] min-[480px]:hidden left-3 right-0  rounded-full w-[110px] h-[128px]  ">
+                        <Image src='/images/Perfil.jpg' objectFit="cover" alt="Tarjeta" fill className="rounded-full"></Image>
+                    </div>
+
+                    <div className="absolute top-[70px] left-4  w-full h-1/2 text-white">
+                        <input type="text" className=" rounded-lg w-72  max-[480px]:hidden  text-bgadmin font-bold text-sm" value={Nombre} />
+                        <input type="text" className=" rounded-lg w-52  min-[480px]:hidden  text-bgadmin font-bold text-xs" value={Nombre} />
+
+                    </div>
+                    <div className="absolute bottom-6 right-2 max-[480px]:hidden w-[80px] h-[80px] max-[480px]:w-[20px] max-[480px]:h-[20px] max-[480px]:bottom-6 max-[480px]:right-1 ">
+                        <Image src='/images/QR.jpg' objectFit="" alt="QR Empleado" fill></Image>
+                    </div>
+                    <div className="absolute bottom-6 min-[480px]:hidden right-2 w-[50px] h-[50px] max-[480px]:w-[20px] max-[480px]:h-[20px] max-[480px]:bottom-6 max-[480px]:right-1 ">
+                        <Image src='/images/QR.jpg' objectFit="" alt="QR Empleado" fill></Image>
+                    </div>
+                    <div className="absolute bottom-6 right-5  w-1/2 h-1/2 text-white">
+                        <h2 className=" max-[480px]:text-xs text-sm">Empresa:</h2>
+                        <input type="text" className=" rounded-lg w-56 py-1 max-[480px]:hidden text-black text-sm font-bold" value={Empresa} disabled />
+                        <input type="text" className=" rounded-lg w-40 min-[480px]:hidden text-black text-xs font-bold " value={Empresa} disabled />
+
+                    </div>
+                    <div className="absolute top-[185px] right-5  w-1/2 h-1/2 text-white">
+                        <h2 className=" max-[480px]:text-xs text-sm">Número de empleado:</h2>
+                        <input type="text" className=" rounded-lg w-36 max-[480px]:hidden text-black  text-sm font-bold" value={Nro_empleado} disabled />
+                        <input type="text" className=" rounded-lg w-20 min-[480px]:hidden text-black  text-sm font-bold" value={Nro_empleado} disabled />
+
+                    </div>
+                    <div className="absolute top-[255px]  max-[480px]:top-[250px] right-16  max-[480px]:right-10  w-1/2 h-1/2 text-white flex flex-col place-items-center">
+                        <span className=" text-[5px]">FEDERACIÓN REGIONAL DE TRABAJADORES</span>
+                        <span className=" text-[5px]">SECCIÓN 1</span>
+                        <span className=" text-[5px]">DEL ESTADO DE QUERÉTARO, C.T.M</span>
                     </div>
                 </div>
             </div>
-            <div className=" bg-primary transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-2xl overflow-hidden bg-bgadminflex items-center ">
-                <div className="flex flex-col">
-                    <span className="font-bold text-white  text-center text-xl py-2 bg-bgadmin">&quot;Innovando la cultura laboral&quot;</span>
-                    <div>
-                        <div className=" bg-white w-full mb-4 items-center justify-center gap-4 p-4 " >
-                            <div className=" flex gap-4 flex-wrap items-center justify-center">
-                                <div className="rounded-lg ">
-                                    <Image src={qrImagen} alt="Codigo del Empleado" width={140} height={160} className="overflow-hidden rounded-lg" />
-                                </div>
-                                <div className="flex flex-col mb-2 flex-wrap mx-8">
-                                    <h2 className="text-bgadmin text-lg font-bold ">Categoria:</h2>
-                                    <span>- Categoria 1</span>
-                                    <span>- Categoria 2</span>
-                                    <span>- Categoria 3</span>
-                                    <span>- Categoria 4</span>
-
-                                </div>
-                            </div>
-                            <div className="flex items-center justify-center gap-2  text-wrap">
-                                <h2 className="text-bgadmin text-lg font-bold ">Número del empleado:</h2>
-                                <input type="text" value={Nro_empleado} className=" w-36 bg-gray-300 border-none rounded-lg" disabled />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
         </div>
 
 

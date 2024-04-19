@@ -69,29 +69,32 @@ const CuponCard = ({ tipoSeleccionado, user }) => {
 
 const Card = ({ tipo, empleado, estado }) => {
     return (
-        <div className="bg-primary flex items-center overflow-hidden transition duration-300 ease-in-out transform  rounded-lg hover:-translate-y-1 hover:shadow-2xl">
-            <div className="flex flex-col border-4 border-dotted border-white rounded-lg m-4">
-                <div className="flex  ">
-                    <div className=" flex items-center justify-center w-1/4 border-dotted border-r-4 border-white">
-                        <Image src="/images/Logo_CTM.png" alt="Logo" width={120} height={200} objectFit="contain" />
+        <div className="grid grid-cols-1 gap-1 place-content-center">
+            <div className={`w-[300px]  flex flex-col  h-[160px]`}>
+                <div className={`relative transition  duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-md overflow-hidden h-[160px]  w-full `}>
+                    <div className="absolute  z-30 top-0 left-[185px] w-1/2 h-1/2 ">
+                        <Image src='/images/Descuento.png' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
                     </div>
-
-                    <div className="flex flex-col items-center justify-center w-3/4">
-                        <div className="mx-auto pt-1">
-                            <Image src="/images/Logo_CTM.png" alt="Logo" width={40} height={40} objectFit="contain" />
-
-                        </div>
-                        <h2 className="text-sm font-bold text-white text-center ">
-                            Cupón de Beneficio
-                        </h2>
-                        <h3 className="text-sm text-border font-bold underline decoration-wavy decoration-primary">
-                            {tipo}
-                        </h3>
-                        <h2 className="text-sm  font-bold text-white text-center tracking-widest">
-                            Codigo: {empleado}
-                        </h2>
+                    <div className="absolute  z-30 top-11 left-5 w-[65px] h-[65px] ">
+                        <Image src='/images/Logo_CTM.webp' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
+                    </div>
+                    <div className="absolute  z-30 top-4 left-[105px] w-[120px] h-1/2 ">
+                        <Image src='/images/Texto_cupon.png' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
+                    </div>
+                    <div className="absolute  z-40 top-[105px] left-6 w-1/2 h-1/2 ">
+                        <button className="bg-primary/90 hover:bg-primary rounded-lg text-white text-[8px] p-1">Me Interesa</button>
+                    </div>
+                    <div className="absolute  z-20 top-0 right-2 w-[280px] h-full ">
+                        <Image src='/images/Lineas.png' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
+                    </div>
+                    <div className="absolute top-0 bottom-0 w-[300px] h-full">
+                        <Image src='/images/Fondo_cupon.png' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
+                    </div>
+                    <div className="text-center absolute top-[45%] right-[15%] left-[25%]">
+                        <span className="text-primary font-bold ">{tipo}</span>
                     </div>
                 </div>
+
             </div>
         </div>
 
