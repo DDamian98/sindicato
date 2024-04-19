@@ -117,10 +117,10 @@ const CardB = ({ Nombre, Empresa, Nro_empleado, qrImagen }) => {
 
                     </div>
                     <div className="absolute bottom-6 right-2 max-[480px]:hidden w-[80px] h-[80px] max-[480px]:w-[20px] max-[480px]:h-[20px] max-[480px]:bottom-6 max-[480px]:right-1 ">
-                        <Image src='/images/QR.jpg' objectFit="" alt="QR Empleado" fill></Image>
+                        <Image src='/images/QR_CTM.jpg' objectFit="" alt="QR Empleado" fill></Image>
                     </div>
                     <div className="absolute bottom-6 min-[480px]:hidden right-2 w-[50px] h-[50px] max-[480px]:w-[20px] max-[480px]:h-[20px] max-[480px]:bottom-6 max-[480px]:right-1 ">
-                        <Image src='/images/QR.jpg' objectFit="" alt="QR Empleado" fill></Image>
+                        <Image src='/images/QR_CTM.jpg' objectFit="" alt="QR Empleado" fill></Image>
                     </div>
                     <div className="absolute bottom-6 right-5  w-1/2 h-1/2 text-white">
                         <h2 className=" max-[480px]:text-xs text-sm">Empresa:</h2>
