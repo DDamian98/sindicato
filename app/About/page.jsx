@@ -138,13 +138,166 @@ const Nosotros = () => {
           </div>
         </div>
       </div>
-
-
       <div className="max-w-5xl mx-auto py-4 ">
-
         <Representantes />
+        <div className="grid grid-cols-1 md:grid-cols-1">
+          <h2 className="text-2xl font-semibold mb-2 border-l-4  border-border pl-3 z-20 text-secundary">¿Cómo estamos conformados?</h2>
+          <p className="text-lg pl-3 text-secundary/80 z-20">
+            Federación Regional Sección 1 CTM
+          </p>
+          <span className="text-lg pl-3 text-secundary/80 font-bold mt-4" >Sindicato de Industrial de Maquiladoras</span>
+          <div className="flex flex-wrap  justify-center items-center text-center gap-8 mt-4 ">
+            <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">Sección Mann+Hummel</span>
+              <div className="grid place-content-center place-items-center pt-4 text-center">
+                <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
 
+            </div>
+            <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">Sección Novem Car</span>
+              <div className="grid place-content-center place-items-center pt-4">
+                <Image src="https://i.postimg.cc/6pVzB7RH/Novem.jpg" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
+
+            </div>
+            <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">Sección Industrias CROWN Montacargas</span>
+              <div className="grid place-content-center place-items-center pt-4">
+
+                <Image src="https://i.postimg.cc/NGm5LRJk/CROWN-Montacargas.jpg " width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
+
+            </div>
+            <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">Sección FOAM Fabricators</span>
+              <div className="grid place-content-center place-items-center pt-4">
+
+                <Image src="https://i.postimg.cc/NjwqNHBb/FOAM.jpg" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
+
+            </div>
+            <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">Sección MSA</span>
+              <div className="grid place-content-center place-items-center pt-4">
+
+                <Image src="https://i.postimg.cc/02DhJyDS/Msa.png" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
+
+            </div>
+            <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">Sección EXCELSIOR</span>
+              <div className="grid place-content-center place-items-center pt-4">
+
+                <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
+
+            </div>
+            <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">Sección WIELAND</span>
+              <div className="grid place-content-center place-items-center pt-4">
+
+                <Image src="https://i.postimg.cc/4NWVPz6R/Wieland.png" width={200} height={150} objectFit="cover" alt="Mann+Hummel" className="w-[200px] h-[120px]">
+                </Image>
+              </div>
+
+            </div>
+            <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">Sección de Ganaderos y Asociados de Querétaro</span>
+              <div className="grid place-content-center place-items-center pt-4">
+
+                <Image src="https://i.postimg.cc/Y2WtbkQr/Ganaderos-y-Asociados-de-Quer-taro.png" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
+            </div>
+            <div className="flex flex-col  p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">Sección MANN FILTER</span>
+              <div className="grid place-content-center place-items-center pt-4">
+
+                <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
+            </div>
+            <div className="flex flex-col    p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">Sección AMERICAN MUFFLER</span>
+              <div className="grid place-content-center place-items-center pt-4">
+
+                <Image src="https://i.postimg.cc/TYKNrYb0/American-Muffler.png" width={200} height={180} objectFit="cover" alt="Mann+Hummel" className="h-[120px]" >
+                </Image>
+              </div>
+            </div>
+
+          </div>
+
+          <span className="text-lg pl-3 text-secundary/80 font-bold mt-4" >Sindicato únicos</span>
+          <div className="flex flex-wrap   text-center gap-8 mt-4 ">
+            <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">RIDE CONTROL</span>
+              <div className="grid place-content-center place-items-center pt-4 text-center">
+                <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
+
+            </div>
+            <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">EXPO HORT</span>
+              <div className="grid place-content-center place-items-center pt-4">
+                <Image src="https://i.postimg.cc/6pVzB7RH/Novem.jpg" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
+
+            </div>
+            <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">TRACTO CAMIONES EUROPEOS</span>
+              <div className="grid place-content-center place-items-center pt-4">
+
+                <Image src="https://i.postimg.cc/NGm5LRJk/CROWN-Montacargas.jpg " width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
+
+            </div>
+            <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">SOLAMEX</span>
+              <div className="grid place-content-center place-items-center pt-2">
+
+                <Image src="https://i.postimg.cc/NjwqNHBb/FOAM.jpg" width={200} height={140} className="h-[120px]" objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
+
+            </div>
+
+
+          </div>
+
+          <span className="text-lg pl-3 text-secundary/80 font-bold mt-4" >Organizaciones de Transporte y Materiales</span>
+          <div className="flex flex-wrap  items-center justify-center text-center gap-8 mt-4 ">
+            <div className="flex flex-col  p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">Sindicato de Taxistas</span>
+              <div className="grid place-content-center place-items-center pt-4 text-center">
+                <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
+
+            </div>
+            <div className="flex flex-col   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
+              <span className="text-secundary">Sindicato de Camiones Materialistas</span>
+              <div className="grid place-content-center place-items-center">
+                <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                </Image>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
         <Enlaces />
+
 
       </div>
       <Social />

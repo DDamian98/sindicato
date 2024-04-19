@@ -59,8 +59,7 @@ const Contacto = () => {
                         >
                             <iframe
                                 className="w-full h-full"
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.339890150515!2d-99.16766668509336!3d19.42702498688921!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff4adf2c746b%3A0x86d67ac8c64cb9cb!2sZ%C3%B3calo%2C%20Plaza%20de%20la%20Constituci%C3%B3n%20S%2FN%2C%20Centro%2C%20Cuauht%C3%A9moc%2C%2006000%20Ciudad%20de%20M%C3%A9xico%2C%20CDMX!5e0!3m2!1ses!2smx!4v1651276773946!5m2!1ses!2smx"
-                                allowFullScreen=""
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2964.6189875514806!2d-100.37625551379601!3d20.580467940717845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d344c8e898ee01%3A0x2353639c5adc6c17!2sC.%20Arquitectos%20107%2C%20Panoramico%2C%2076047%20Santiago%20de%20Quer%C3%A9taro%2C%20Qro.%2C%20M%C3%A9xico!5e0!3m2!1ses-419!2spe!4v1713541462375!5m2!1ses-419!2spe" allowFullScreen=""
                                 loading="lazy"
                                 referrerPolicy="no-referrer-when-downgrade"
                             ></iframe>
