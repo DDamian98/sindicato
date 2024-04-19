@@ -240,7 +240,7 @@ const Nosotros = () => {
             <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
               <span className="text-secundary">RIDE CONTROL</span>
               <div className="grid place-content-center place-items-center pt-4 text-center">
-                <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                <Image src="https://i.postimg.cc/28GFJpfJ/RIDE-CONTROL.png" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
 
@@ -248,7 +248,7 @@ const Nosotros = () => {
             <div className="flex flex-col flex-grow   p-2 w-[200px] h-[200px] transition duration-300 ease-in-out  hover:shadow-xl ">
               <span className="text-secundary">EXPO HORT</span>
               <div className="grid place-content-center place-items-center pt-4">
-                <Image src="https://i.postimg.cc/6pVzB7RH/Novem.jpg" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                <Image src="https://i.postimg.cc/fytnP7Vq/EXPOR-HORT.png" width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
 
@@ -257,7 +257,7 @@ const Nosotros = () => {
               <span className="text-secundary">TRACTO CAMIONES EUROPEOS</span>
               <div className="grid place-content-center place-items-center pt-4">
 
-                <Image src="https://i.postimg.cc/NGm5LRJk/CROWN-Montacargas.jpg " width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
+                <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg " width={200} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
 
@@ -266,7 +266,7 @@ const Nosotros = () => {
               <span className="text-secundary">SOLAMEX</span>
               <div className="grid place-content-center place-items-center pt-2">
 
-                <Image src="https://i.postimg.cc/NjwqNHBb/FOAM.jpg" width={200} height={140} className="h-[120px]" objectFit="cover" alt="Mann+Hummel" >
+                <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={200} height={140} className="h-[120px]" objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
 
