@@ -109,7 +109,7 @@ export default function Home() {
               <div className="flex-auto mt-16 lg:w-1/4 lg:mt-0">
                 <Image
                   className="w-full max-w-none rounded-md "
-                  src="/images/Logo_CTM.png"
+                  src="/images/Logo_CTM.webp"
                   alt="Confederación de Trabajadores de México"
                   width={200}
                   height={300}
