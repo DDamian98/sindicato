@@ -90,7 +90,7 @@ export default function Home() {
             <div className="flex flex-col mx-auto max-w-7xl py-7 text-center lg:mx-0 lg:flex-row lg:gap-x-6 lg:max-w-none">
               <div className="flex-auto lg:w-3/4">
                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  Confederación de Trabajadores de México
+                  Federación Regional de Trabajadores de México - Sección 1
                 </h2>
                 <p className="mt-6 px-8 text-lg leading-8 text-gray-300">
                   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.

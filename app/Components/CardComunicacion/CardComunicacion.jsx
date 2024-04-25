@@ -3,14 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
-const CardEvento = () => {
+const CardComunicacion = () => {
     const [noticiaData, setNoticiaData] = useState([]);
 
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const id = "1ksAELSvZG9g4CPA-BVKF7KB3M-j4ZcWnrrkVu6kj1I0";
-                const range = "Evento!A:D";
+                const range = "Comunicación!A:D";
                 const apiKey = "AIzaSyCOH_ihCt7Q8g3NF_1biASZAs-7cOxoE1E";
                 const response = await fetch(
                     `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${apiKey}`
@@ -18,12 +18,10 @@ const CardEvento = () => {
                 const data = await response.json();
 
                 const evento = data.values.slice(1).map((row) => ({
-                    Codigo: row[0],
-                    Imagen: row[1],
-                    Titulo: row[2],
-                    Descripcion: row[3],
-                    Fecha: row[4],
-                    Enlace: row[5],
+                    Imagen: row[0],
+                    Titulo: row[1],
+                    Descripcion: row[2],
+                    Fecha: row[3],
                 }));
                 setNoticiaData(evento);
             } catch (error) {
@@ -40,12 +38,10 @@ const CardEvento = () => {
                 {noticiaData.map((evento, index) => (
                     <Card
                         key={index}
-                        Codigo={evento.Codigo}
                         Imagen={evento.Imagen}
                         Titulo={evento.Titulo}
                         Descripcion={evento.Descripcion}
                         Fecha={evento.Fecha}
-                        Enlace={evento.Enlace}
                     />
                 ))}
             </div>
@@ -53,7 +49,7 @@ const CardEvento = () => {
     );
 };
 
-const Card = ({ Imagen, Titulo, Descripcion, Fecha, Codigo, Enlace }) => {
+const Card = ({ Imagen, Titulo, Descripcion, Fecha }) => {
     return (
         <div className="max-w-md bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 ease-in-out">
             <div className="relative w-full h-48">
@@ -68,13 +64,10 @@ const Card = ({ Imagen, Titulo, Descripcion, Fecha, Codigo, Enlace }) => {
                     {Descripcion}
                 </p>
             </div>
-            <div className="px-4 py-3 bg-gray-50 text-center rounded-b-lg gap-4 flex items-center justify-center">
-                <a href={Enlace} target="black" className=" cursor-pointer text-md bg-primary text-white px-5 py-2 rounded-lg font-medium hover:bg-primary/80 transition duration-300">Registrate!</a>
-                <a href={`/Eventos/${Codigo}`} className="text-md bg-primary text-white px-5 py-2 rounded-lg font-medium hover:bg-primary/80 transition duration-300">Más detalles</a>
-            </div>
+
         </div>
 
     );
 };
 
-export default CardEvento;
+export default CardComunicacion;

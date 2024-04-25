@@ -31,7 +31,7 @@ const Nav = () => {
               </Navbar.Link>
               <Dropdown />
               <Navbar.Link className="hover:text-primary" href="/ProgramaLealtad">
-                <span className='hover:text-primary'>Programa de Lealtad</span>
+                <span className='hover:text-primary'>Beneficios y Descuentos</span>
               </Navbar.Link>
               <Dropdown2 />
               <Navbar.Link className="hover:text-primary" href="/Contacto">

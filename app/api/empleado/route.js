@@ -75,7 +75,6 @@ export async function POST(req) {
         // Realizar la solicitud a la API de Google Sheets
         const sheetResponse = await fetch(url);
         const sheetData = await sheetResponse.json();
-        console.log('Datos de la hoja de cálculo:', sheetData);
         // Buscar las credenciales
         const empleados = sheetData.values
             .slice(1)
@@ -92,13 +91,9 @@ export async function POST(req) {
                 Qr: row[9],
             }))
             .filter((empleados) =>
-                empleados.Correo === email && empleados.Correo === password,
+                empleados.Correo === email && empleados.Nro_empleado === password,
             );
-        console.log('Usuario autenticado123123:', empleados);
         if (empleados.length > 0) {
-            console.log('Usuario autenticado:', empleados);
-            const correo = empleados.Correo;
-            console.log("Correo del usuario", correo);
             return new NextResponse(JSON.stringify({ user: { empleados } }), {
                 status: 200,
                 headers: {

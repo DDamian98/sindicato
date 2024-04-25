@@ -1,7 +1,7 @@
 import React from 'react'
 import NavDashBoard from '../../Components/Menu/NavDashBoard'
 
-export default function Empresa() {
+export default function CuponAplicado() {
     return (
         <div className='flex bg-gray-200  ' >
             <NavDashBoard />

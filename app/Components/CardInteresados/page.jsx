@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import QRCode from 'qrcode';
 import fetch from 'node-fetch';
 import Link from "next/link";
-const CardEmpleado = ({ }) => {
+const CardInteresados = ({ }) => {
     const [empleadosData, setEmpleadosData] = useState([]);
     const [search, setSearch] = useState(""); // Estado para manejar el texto de búsqueda
 
@@ -12,7 +12,7 @@ const CardEmpleado = ({ }) => {
         const fetchData = async () => {
             try {
                 const id = "1ksAELSvZG9g4CPA-BVKF7KB3M-j4ZcWnrrkVu6kj1I0";
-                const range = "Registro_empleados!A:J";
+                const range = "CuponInteresado!A:J";
                 const apiKey = "AIzaSyCOH_ihCt7Q8g3NF_1biASZAs-7cOxoE1E";
                 const response = await fetch(
                     `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${apiKey}`
@@ -22,16 +22,15 @@ const CardEmpleado = ({ }) => {
                 const empleados = data.values
                     .slice(1)
                     .map((row) => ({
-                        MarcaTemporal: row[0],
+                        Codigo_Cupon: row[0],
                         Nombre_Apellidos: row[1],
-                        Empresa: row[2],
-                        Nro_empledo: row[3],
-                        Nro_contacto: row[4],
-                        Nro_celular: row[5],
-                        Correo: row[6],
-                        Direccion: row[7],
-                        Red_social: row[8],
-                        Qr: row[9],
+                        Nro_empledo: row[2],
+                        Empresa: row[3],
+                        Nro_Telefono: row[4],
+                        Estado: row[5],
+                        Empresa_Cupon: row[6],
+                        Producto: row[7],
+                        Promocion: row[8],
                     }));
 
                 setEmpleadosData(empleados);
@@ -55,7 +54,6 @@ const CardEmpleado = ({ }) => {
         const qrData = `http://www.ctmseccion1.com/Dashboard/Usuarios/${empleado.Nro_empledo}`;
 
         try {
-            // Generar el código QR
             const qrImage = await QRCode.toDataURL(qrData, {
                 errorCorrectionLevel: 'H',
                 color: {
@@ -64,26 +62,22 @@ const CardEmpleado = ({ }) => {
                 }
             });
 
-            // Crear un elemento Canvas
             const canvas = document.createElement('canvas');
             const context = canvas.getContext('2d');
-            const size = 256;  // Tamaño del canvas y del QR
+            const size = 256;
             canvas.width = size;
             canvas.height = size;
 
-            // Cargar la imagen del código QR
             const qrCodeImage = new Image();
             qrCodeImage.src = qrImage;
             await new Promise((resolve) => {
                 qrCodeImage.onload = resolve;
             });
 
-            // Dibujar el código QR en el canvas
             context.drawImage(qrCodeImage, 0, 0, size, size);
 
-            // Cargar la imagen personalizada del logo
             const logo = new Image();
-            logo.src = '/images/Logo_CTM.webp'; // Asegúrate de que la ruta sea correcta
+            logo.src = '/images/Logo_CTM.webp';
             await new Promise((resolve) => {
                 logo.onload = resolve;
             });
@@ -105,9 +99,9 @@ const CardEmpleado = ({ }) => {
     };
 
     return (
-        <div className="container mx-auto mt-8 ">
+        <div className="container mx-auto mt-2">
 
-            <div className="flex flex-col flex-wrap p-4 overflow-x-auto">
+            <div className="flex flex-col flex-wrap p-4 ">
                 <input
                     type="text"
                     placeholder="Buscar empleados..."
@@ -117,27 +111,25 @@ const CardEmpleado = ({ }) => {
                 <div className="-my-2 sm:-mx-6 lg:-mx-8">
                     <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                         <div className="shadow  border-b border-gray-200 sm:rounded-lg  ">
-                            <table className="m-auto divide-y divide-gray-200  ">
+                            <table className=" divide-y divide-gray-200  ">
                                 <thead className="bg-gray-50">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            N° de Empleado
+                                            Nombre del Empleado
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Nombre y Apellidos
+                                            Nro del Empleado
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Empresa
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            N° de Contacto
+                                            Producto
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Correo Electrónico
+                                            Promoción
                                         </th>
-                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Dirección
-                                        </th>
+
                                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Acción
                                         </th>
@@ -147,33 +139,29 @@ const CardEmpleado = ({ }) => {
                                     {filteredEmpleados.map((empleado, index) => (
                                         <tr key={index}>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                {empleado.Nro_empledo}
+                                                {empleado.Nombre_Apellidos}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {empleado.Nombre_Apellidos}
+                                                {empleado.Nro_empledo}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 {empleado.Empresa}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {empleado.Nro_contacto}
+                                                {empleado.Producto}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {empleado.Correo}
+                                                {empleado.Promocion}
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {empleado.Direccion}
-                                            </td>
+
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 gap-4 flex">
+                                                <a href={`https://api.whatsapp.com/send?phone=931784733${empleado.Nro_Telefono}`} target="blank__" className="bg-green-500 hover:bg-green-500/90 text-white  p-2 ">Contactar</a>
                                                 <button
                                                     onClick={() => handleGenerateQR(empleado)}
                                                     className="bg-primary hover:bg-primary/90 text-white  p-2 "
-                                                >
-                                                    Generar QR
+                                                >Adquirir
                                                 </button>
-                                                <Link href={`/Dashboard/Usuarios/${empleado.Nro_empledo}`} className="bg-bgadmin p-2 text-white hover:bg-bgadmin/90">
-                                                    Ver Detalles
-                                                </Link>
+
                                             </td>
                                         </tr>
                                     ))}
@@ -188,4 +176,4 @@ const CardEmpleado = ({ }) => {
     );
 };
 
-export default CardEmpleado;
+export default CardInteresados;

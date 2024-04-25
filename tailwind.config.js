@@ -21,6 +21,7 @@ module.exports = {
         border: '#ee9e21',
         cupon: '#f29120',
         bgadmin: '#202e55',
+        tarjeta: '#f29021',
       },
     },
   },

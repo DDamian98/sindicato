@@ -4,13 +4,13 @@
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import QRCode from 'qrcode';
-import styles from "./styles.module.css"
+
+import QRCodeComponent from "../QRCodeComponent/QRCodeComponent";
 
 const CardBeneficio = (idEmpleado) => {
 
     const [empleadosData, setEmpleadosData] = useState([]);
-    const [qrImage, setQrImage] = useState('');
+    const [combinedImageSrc, setCombinedImageSrc] = useState('');
 
     useEffect(() => {
         const fetchData = async () => {
@@ -51,15 +51,34 @@ const CardBeneficio = (idEmpleado) => {
     }, [idEmpleado]);
 
     const generateQR = async (nroEmpleado) => {
-        try {
-            const qrData = `http://www.ctmseccion1.com/Dashboard/Usuarios/${nroEmpleado}`;
-            const generatedQR = await QRCode.toDataURL(qrData);
-            setQrImage(generatedQR);
-            console.log("QR generado:", generatedQR);
-
-        } catch (error) {
-            console.error("Error al generar el código QR:", error);
-        }
+        /* try {
+             // Genera el QR como Data URL
+             const qrDataUrl = await QRCode.toDataURL(`http://www.ctmseccion1.com/Dashboard/Usuarios/${nroEmpleado}`);
+ 
+             const backgroundImageSrc = '/images/QR_CTM.jpg'; // La ruta a la imagen de fondo en el directorio público
+             const qrImage = new Image();
+             qrImage.src = qrDataUrl;
+ 
+             qrImage.onload = () => {
+                 const canvas = document.createElement('canvas');
+                 const ctx = canvas.getContext('2d');
+ 
+                 // Aquí establecerías las dimensiones del canvas para que coincidan con tu imagen de fondo personalizada
+                 canvas.width = qrImage.width;
+                 canvas.height = qrImage.height;
+ 
+                 // Dibuja aquí la imagen de fondo y el QR sobre el canvas
+                 // Suponiendo que tu imagen de fondo ya es del tamaño correcto
+                 ctx.drawImage(qrImage, 0, 0);
+ 
+                 // Convierte el contenido del canvas a Data URL
+                 const combinedImageDataUrl = canvas.toDataURL('image/png');
+                 console.log(combinedImageDataUrl);
+                 setCombinedImageSrc(combinedImageDataUrl);
+             };
+         } catch (error) {
+             console.error('Error al generar el código QR:', error);
+         }*/
     };
 
     return (
@@ -77,7 +96,6 @@ const CardBeneficio = (idEmpleado) => {
                             Nombre={empleado.Nombre_Apellidos}
                             Empresa={empleado.Empresa}
                             Nro_empleado={empleado.Nro_empleado}
-                            qrImagen={qrImage}
                         />
                     ))}
                 </div>
@@ -86,9 +104,10 @@ const CardBeneficio = (idEmpleado) => {
     );
 };
 
-const CardB = ({ Nombre, Empresa, Nro_empleado, qrImagen }) => {
+const CardB = ({ Nombre, Empresa, Nro_empleado }) => {
     return (
         <div className="grid grid-cols-1 gap-1 place-content-center">
+
             <div className={`w-[440px] max-[480px]:w-[300px] flex flex-col`}>
                 <div className={`relative transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-md overflow-hidden h-[300px] max-sm:h[280px] w-full `}>
                     <div className="absolute  z-20 top-0 left-0 right-0 w-full h-1/2 ">
@@ -117,10 +136,10 @@ const CardB = ({ Nombre, Empresa, Nro_empleado, qrImagen }) => {
 
                     </div>
                     <div className="absolute bottom-6 right-2 max-[480px]:hidden w-[80px] h-[80px] max-[480px]:w-[20px] max-[480px]:h-[20px] max-[480px]:bottom-6 max-[480px]:right-1 ">
-                        <Image src='/images/QR_CTM.jpg' objectFit="" alt="QR Empleado" fill></Image>
+                        <QRCodeComponent UrlText={`https://www.ctmseccion1.com/Dashboard/Usuarios/${Nro_empleado}`} />
                     </div>
                     <div className="absolute bottom-6 min-[480px]:hidden right-2 w-[50px] h-[50px]  ">
-                        <Image src='/images/QR_CTM.jpg' objectFit="" alt="QR Empleado" fill></Image>
+                        <QRCodeComponent UrlText={`https://www.ctmseccion1.com/Dashboard/Usuarios/${Nro_empleado}`} />
                     </div>
                     <div className="absolute bottom-6 right-5  w-1/2 h-1/2 text-white">
                         <h2 className=" max-[480px]:text-xs text-sm">Empresa:</h2>

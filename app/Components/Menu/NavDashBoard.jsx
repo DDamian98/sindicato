@@ -1,7 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import {
-    IoMdHome, IoMdPerson, IoIosMenu, IoIosLogOut, IoIosAlbums, IoIosBusiness
+    IoMdHome, IoMdPerson, IoIosMenu, IoIosLogOut, IoIosAlbums, IoIosCash
 } from 'react-icons/io';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -13,17 +13,29 @@ const MenuItem = ({ icon, text, isExpanded }) => (
     </div>
 );
 
-const DashboardMenu = ({ Nombre_Apellidos }) => {
+const DashboardMenu = ({ Nombre_Apellidos, TipoUsuario }) => {
     const [isExpanded, setIsExpanded] = useState(false);
+    let menuItems = [];
+    if (TipoUsuario === 'empleado') {
 
-    const menuItems = [
-        { text: 'Inicio', icon: <IoMdHome className="w-5 h-5" />, link: '/Dashboard' },
-        { text: 'Empresa', icon: <IoIosBusiness className="w-5 h-5" />, link: '/Dashboard/Empresa' },
-        { text: 'Cupon', icon: <IoIosAlbums className="w-5 h-5" />, link: '/Dashboard/Cupon' },
-        { text: 'Usuarios', icon: <IoMdPerson className="w-5 h-5" />, link: '/Dashboard/Usuarios' },
-        { text: 'Salir', icon: <IoIosLogOut className="w-5 h-5" />, link: '/Login' },
+        menuItems = [
+            { text: 'Inicio', icon: <IoMdHome className="w-5 h-5" />, link: '/Dashboard' },
+            { text: 'Cupon', icon: <IoIosAlbums className="w-5 h-5" />, link: '/Dashboard/Cupon' },
+            { text: 'Salir', icon: <IoIosLogOut className="w-5 h-5" />, link: '/Login' },
 
-    ];
+        ];
+    } else {
+        menuItems = [
+            { text: 'Inicio', icon: <IoMdHome className="w-5 h-5" />, link: '/Dashboard' },
+            { text: 'Cupon', icon: <IoIosAlbums className="w-5 h-5" />, link: '/Dashboard/Cupon' },
+            { text: 'Cupon Aplicado', icon: <IoIosCash className="w-5 h-5" />, link: '/Dashboard/CuponAplicado' },
+            { text: 'Usuarios', icon: <IoMdPerson className="w-5 h-5" />, link: '/Dashboard/Usuarios' },
+            { text: 'Salir', icon: <IoIosLogOut className="w-5 h-5" />, link: '/Login' },
+
+        ];
+    }
+
+
 
     return (
         <div className="flex min-h-screen bg-gray-800 text-white h-auto">

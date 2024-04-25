@@ -17,10 +17,11 @@ const CardNoticia = ({ tipoSeleccionado }) => {
                 const data = await response.json();
 
                 const noticia = data.values.slice(1).map((row) => ({
-                    Imagen: row[0],
-                    Titulo: row[1],
-                    Descripcion: row[2],
-                    Fecha: row[3],
+                    Codigo: row[0],
+                    Imagen: row[1],
+                    Titulo: row[2],
+                    Descripcion: row[3],
+                    Fecha: row[4],
                 }));
                 setNoticiaData(noticia);
             } catch (error) {
@@ -41,6 +42,7 @@ const CardNoticia = ({ tipoSeleccionado }) => {
                         Titulo={noticia.Titulo}
                         Descripcion={noticia.Descripcion}
                         Fecha={noticia.Fecha}
+                        Codigo={noticia.Codigo}
                     />
                 ))}
             </div>
@@ -48,7 +50,7 @@ const CardNoticia = ({ tipoSeleccionado }) => {
     );
 };
 
-const Card = ({ Imagen, Titulo, Descripcion, Fecha }) => {
+const Card = ({ Imagen, Titulo, Descripcion, Fecha, Codigo }) => {
     return (
         <div className="flex max-w-xl bg-white shadow-md rounded-lg overflow-hidden hover:shadow-lg transition-shadow duration-300 ease-in-out">
             <div className="flex-none w-1/2 relative">
@@ -64,7 +66,7 @@ const Card = ({ Imagen, Titulo, Descripcion, Fecha }) => {
                     {Descripcion.length > 100 ? Descripcion.substring(0, 100) + "..." : Descripcion}
                 </p>
                 <div className="flex justify-end mt-4">
-                    <a href="" className="text-xl bg-primary text-white px-4 py-2 rounded-lg font-bold hover:bg-primary/80 transition duration-300">Leer más</a>
+                    <a href={`/Noticias/${Codigo}`} className="text-xl bg-primary text-white px-4 py-2 rounded-lg font-bold hover:bg-primary/80 transition duration-300">Leer más</a>
                 </div>
             </div>
         </div>

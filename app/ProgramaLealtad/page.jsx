@@ -7,6 +7,7 @@ import Nav from "../Components/Menu/Nav";
 import Social from "../Components/Social/Social";
 import Footer from "../Components/Footer/Footer";
 import Beneficios from "../Components/Beneficio/Beneficios";
+import Empresas from "../Components/Empresas Afiliadas/Empresas";
 
 const ProgramaLealtad = () => {
     const containerVariants = {
@@ -67,13 +68,14 @@ const ProgramaLealtad = () => {
 
             </motion.div>
 
-            <div className="max-w-5xl mx-auto  gap-8 my-10 px-10 text-secundary md:pt-5 ">
+            <div className="max-w-5xl mx-auto  gap-8  px-10 text-secundary md:pt-5 ">
                 <motion.div
                     initial="offscreen"
                     whileInView="onscreen"
                     viewport={{ once: true }}
                     variants={fromLeftVariants}
                 >
+                    <h1 className="text-2xl font-bold text-center p-2">Programa de Beneficio y Descuento</h1>
                     <div className="grid grid-cols-1 md:grid-cols-1">
                         <h2 className="text-2xl font-semibold mb-2 border-l-4  border-border pl-3 z-20">¿Para quién va dirigido?</h2>
                         <p className="text-lg pl-3 text-secundary/80 z-20">El programa de beneficios y descuentos va dirigido a nuestros compañeros sindicalizados y sus familias , con el objetivo de aprovechar descuentos, becas, precios especiales y promociones de  nuestros proveedores aliados  que podrán dar atención presencial y virtual a los interesados.

@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import QRCode from 'qrcode';
 
-const CuponCard = ({ tipoSeleccionado, user, }) => {
+const CuponTotal = ({ tipoSeleccionado }) => {
     const [cuponesData, setCuponesData] = useState([]);
 
     useEffect(() => {
@@ -33,11 +33,7 @@ const CuponCard = ({ tipoSeleccionado, user, }) => {
                         tipoSeleccionado === "Todos"
                             ? true
                             : cupones.Tipo === tipoSeleccionado
-                    ).filter((cupones) =>
-                        cupones.Empleado === user
                     );
-                console.log("Usuario:", user);
-                console.log("Tipo:", tipoSeleccionado);
 
 
                 setCuponesData(cupones);
@@ -47,7 +43,7 @@ const CuponCard = ({ tipoSeleccionado, user, }) => {
         };
 
         fetchData();
-    }, [tipoSeleccionado, user]);
+    }, [tipoSeleccionado]);
 
     return (
         <div className="container mx-auto text-secundary">
@@ -84,7 +80,12 @@ const Card = ({ tipo, promocion, Marca }) => {
                     <div className="absolute  z-30 top-4 left-[105px] w-[120px] h-1/2 ">
                         <Image src='/images/Texto_cupon.png' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
                     </div>
-
+                    <div className="absolute  z-40 top-[105px] left-6 w-1/2 h-1/2 ">
+                        <button className="bg-primary/90 hover:bg-primary rounded-lg text-white text-[8px] p-1">Me Interesa</button>
+                    </div>
+                    <div className="absolute  z-50 top-[135px] left-[250px] w-1/2 h-1/2 ">
+                        <a className=" bg-green-700 hover:bg-green-500 rounded-lg text-white text-[8px] p-1 cursor-pointer font-bold">Contactar</a>
+                    </div>
                     <div className="absolute  z-20 top-0 right-2 w-[280px] h-full ">
                         <Image src='/images/Lineas.png' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
                     </div>
@@ -108,4 +109,4 @@ const Card = ({ tipo, promocion, Marca }) => {
     );
 };
 
-export default CuponCard;
+export default CuponTotal;
