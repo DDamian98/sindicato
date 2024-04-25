@@ -102,7 +102,7 @@ const CardB = ({ Nombre, Fecha, Mensaje }) => {
 
                         <span className=" text-[8px] font-bold ">Sección 1 CTM:</span>
 
-                        <span className=" text-[8px] font-bold text-tarjeta ">"{Mensaje}"</span>
+                        <span className=" text-[8px] font-bold text-tarjeta ">{Mensaje}</span>
 
                         <div>
                         </div>
