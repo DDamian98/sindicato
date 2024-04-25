@@ -17,10 +17,12 @@ const CardEventoDetail = () => {
                 const data = await response.json();
 
                 const noticia = data.values.slice(-5).reverse().map((row) => ({
-                    Imagen: row[0],
-                    Titulo: row[1],
-                    Descripcion: row[2],
-                    Fecha: row[3],
+                    Codigo: row[0],
+                    Imagen: row[1],
+                    Titulo: row[2],
+                    Descripcion: row[3],
+                    Fecha: row[4],
+                    Enlace: row[5],
                 }));
                 setNoticiaData(noticia);
             } catch (error) {
@@ -43,13 +45,14 @@ const CardEventoDetail = () => {
                     Titulo={noticia.Titulo}
                     Descripcion={noticia.Descripcion}
                     Fecha={noticia.Fecha}
+                    Codigo={noticia.Codigo}
                 />
             ))}
         </div>
     );
 };
 
-const Card = ({ Imagen, Titulo, Descripcion, Fecha }) => {
+const Card = ({ Imagen, Titulo, Descripcion, Fecha, Codigo }) => {
     return (
         <div className="flex items-center px-4 py-2 hover:bg-gray-100 transition-colors duration-300">
             {/* Fecha */}
@@ -68,9 +71,8 @@ const Card = ({ Imagen, Titulo, Descripcion, Fecha }) => {
             </div>
 
             {/* Botón Leer Más */}
-            <a href="#" className="ml-4 inline-block bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary/80 transition-colors duration-300">
-                LEER MÁS
-            </a>
+            <a href={`/Eventos/${Codigo}`} className="text-md bg-primary text-white px-5 py-2 rounded-lg font-medium hover:bg-primary/80 transition duration-300">Más detalles</a>
+
         </div>
 
     );

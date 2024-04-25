@@ -95,7 +95,7 @@ export default function Home() {
                 <p className="mt-6 px-8 text-lg leading-8 text-gray-300">
                   Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                 </p>
-                <div className="mt-10 flex items-center justify-center gap-x-6 lg:justify-start">
+                <div className="mt-10 flex items-center justify-center gap-x-6 ">
                   <a
                     href="#"
                     className="rounded-md bg-primary/90 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-primary/100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"          >
@@ -106,13 +106,13 @@ export default function Home() {
                   </a>
                 </div>
               </div>
-              <div className="flex-auto mt-16 lg:w-1/4 lg:mt-0">
+              <div className="flex-auto mt-16 lg:w-1/4 lg:mt-0 items-center justify-center">
                 <Image
                   className="w-full max-w-none rounded-md "
                   src="/images/Logo_CTM.webp"
                   alt="Confederación de Trabajadores de México"
                   width={200}
-                  height={300}
+                  height={150}
                 />
               </div>
             </div>
@@ -124,8 +124,9 @@ export default function Home() {
           viewport={{ once: true }}
           variants={fromLeftVariants}
         >
-          <div className='max-w-7xl mx-auto flex flex-wrap gap-10 items-center justify-center ' >
+          <div className='max-w-7xl mx-auto  gap-10 grid grid-cols-1 md:grid-cols-2  ' >
             <CardNoticiaDetail />
+
             <CardEventoDetail />
 
           </div>

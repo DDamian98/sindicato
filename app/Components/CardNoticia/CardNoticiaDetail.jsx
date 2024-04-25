@@ -21,10 +21,11 @@ const CardNoticiaDetail = () => {
 
                 // Selecciona los tres últimos elementos y luego inviértelos
                 const ultimasTresNoticias = registros.slice(-5).reverse().map((row) => ({
-                    Imagen: row[0],
-                    Titulo: row[1],
-                    Descripcion: row[2],
-                    Fecha: row[3],
+                    Codigo: row[0],
+                    Imagen: row[1],
+                    Titulo: row[2],
+                    Descripcion: row[3],
+                    Fecha: row[4],
                 }));
 
                 setNoticiaData(ultimasTresNoticias);
@@ -49,15 +50,16 @@ const CardNoticiaDetail = () => {
                     Titulo={noticia.Titulo}
                     Descripcion={noticia.Descripcion}
                     Fecha={noticia.Fecha}
+                    Codigo={noticia.Codigo}
                 />
             ))}
         </div>
     );
 };
 
-const Card = ({ Imagen, Titulo, Descripcion, Fecha }) => {
+const Card = ({ Imagen, Titulo, Descripcion, Fecha, Codigo }) => {
     return (
-        <div className="flex items-center px-4 py-2 hover:bg-gray-100 transition-colors duration-300">
+        <div className="flex items-center px-4 py-2 hover:bg-gray-100 transition-colors duration-300" >
             {/* Fecha */}
             <div className="flex-shrink-0">
                 <span className="block text-sm font-medium text-gray-500">{Fecha}</span>
@@ -74,9 +76,8 @@ const Card = ({ Imagen, Titulo, Descripcion, Fecha }) => {
             </div>
 
             {/* Botón Leer Más */}
-            <a href="#" className="ml-4 inline-block bg-primary text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-primary/80 transition-colors duration-300">
-                LEER MÁS
-            </a>
+            <a href={`/Noticias/${Codigo}`} className="text-xl bg-primary text-white px-4 py-2 rounded-lg font-bold hover:bg-primary/80 transition duration-300">Leer más</a>
+
         </div>
 
     );
