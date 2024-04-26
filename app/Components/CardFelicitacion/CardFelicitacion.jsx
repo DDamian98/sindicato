@@ -15,7 +15,7 @@ const CardFelicitacion = (idEmpleado) => {
         const fetchData = async () => {
             try {
                 const id = "1ksAELSvZG9g4CPA-BVKF7KB3M-j4ZcWnrrkVu6kj1I0";
-                const range = "Registro_empleados!A:L";
+                const range = "Registro_empleados!A:M";
                 const apiKey = "AIzaSyCOH_ihCt7Q8g3NF_1biASZAs-7cOxoE1E";
                 const response = await fetch(
                     `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${apiKey}`
@@ -29,14 +29,14 @@ const CardFelicitacion = (idEmpleado) => {
                     .map((row) => ({
                         Nombre: row[1],
                         Nro_empleado: row[3],
-                        Fecha: row[9],
-                        Reconocmiento: row[10],
-                        Mensaje: row[11],
+                        Fecha: row[10],
+                        Reconocmiento: row[11],
+                        Mensaje: row[12],
                     }))
                     .filter((empleados) =>
                         empleados.Nro_empleado === idEmpleado.idEmpleado && empleados.Fecha === todayString,
                     );
-
+                console.log("Empleados:", empleados);
                 setEmpleadosData(empleados);
             } catch (error) {
                 console.error("Error al obtener los datos del Excel:", error);
@@ -56,6 +56,8 @@ const CardFelicitacion = (idEmpleado) => {
             className="mx-auto  text-secundary pb-10"
         >
             <div className="container mx-auto text-secundary">
+                <h2 className="text-bgadmin font-bold text-lg text-center pt-4 mb-[-30px]">Reconocimiento</h2>
+
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-2 place-items-center">
                     {empleadosData.map((empleado, index) => (
                         <CardB
@@ -77,6 +79,7 @@ const CardB = ({ Nombre, Fecha, Mensaje }) => {
         <div className="grid grid-cols-1 gap-1 place-content-center">
 
             <div className={`w-[300px] h-[200px]  flex flex-col`}>
+
                 <div className={`relative transition duration-300 ease-in-out transform rounded-md overflow-hidden h-[300px] max-sm:h[280px] w-full `}>
 
                     <div className="absolute top-9 left-0 right-0 w-[300px] h-[180px]  ">

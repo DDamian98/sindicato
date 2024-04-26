@@ -57,9 +57,9 @@ const Representantes = () => {
 
 const RepresentantesCrd = ({ imageUrl, nombre, cargo }) => {
   return (
-    <Card className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-lg overflow-hidden">
-      <div className="relative w-full h-48">
-        <Image src={imageUrl} alt={nombre} layout="fill" objectFit="cover" className="rounded-t-lg" />
+    <Card className="transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-lg overflow-hidden flex flex-col border-2 items-center justify-center">
+      <div className="flex justify-center w-full h-48 flex-grow">
+        <Image src={imageUrl} alt={nombre} width={192} height={192} objectFit="cover" objectPosition="center" className="rounded-t-lg w-56 h-56" />
       </div>
       <div className="px-6 py-4">
         <h3 className="text-xl font-semibold text-primary mb-1">{nombre}</h3>

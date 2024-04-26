@@ -10,6 +10,41 @@ import Beneficios from "../Components/Beneficio/Beneficios";
 import Empresas from "../Components/Empresas Afiliadas/Empresas";
 
 const ProgramaLealtad = () => {
+    const imageUrls = [{
+        imagen: "/images/Calzado.png",
+        nombre: "Calzado"
+    },
+    {
+        imagen: "/images/Ropa.png",
+        nombre: "Ropa"
+    },
+    {
+        imagen: "/images/Bebidas.png",
+        nombre: "Bebidas"
+    },
+    {
+        imagen: "/images/Ferretería.png",
+        nombre: "Ferretería"
+    },
+    {
+        imagen: "/images/Asesoría.png",
+        nombre: "Asesoría"
+    },
+    {
+        imagen: "/images/Educación.png",
+        nombre: "Educación"
+    },
+    {
+        imagen: "/images/Hogar.png",
+        nombre: "Hogar"
+    },
+    {
+        imagen: "/images/Salud.png",
+        nombre: "Salud"
+    }];
+
+
+
     const containerVariants = {
         hidden: { opacity: 0, y: 20 },
         visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
@@ -99,15 +134,27 @@ const ProgramaLealtad = () => {
                         <p className="text-lg pl-3 text-secundary/80 z-20">
                             Ampliamos nuestras categorías de productos y servicios con la finalidad de fortalecer la nueva cultura laboral- Conectando empresas de Querétaro, Guadalajara, Ciudad de México, Argentina, Chile, Perú, Colombia con una gran variedad de productos y servicios.
                         </p>
-                        <span className="text-lg pl-3 text-secundary/80 z-20">- <strong>Categorías</strong></span>
-                        <span className="text-lg pl-3 text-secundary/80 z-20">- <strong>Calzado</strong></span>
-                        <span className="text-lg pl-3 text-secundary/80 z-20">- <strong>Ropa</strong></span>
-                        <span className="text-lg pl-3 text-secundary/80 z-20">- <strong>Bebidas</strong></span>
-                        <span className="text-lg pl-3 text-secundary/80 z-20">- <strong>Comida</strong></span>
-                        <span className="text-lg pl-3 text-secundary/80 z-20">- <strong>Salud</strong></span>
-                        <span className="text-lg pl-3 text-secundary/80 z-20">- <strong>Educación</strong></span>
-                        <span className="text-lg pl-3 text-secundary/80 z-20">- <strong>Hogar</strong></span>
-                        <span className="text-lg pl-3 text-secundary/80 z-20">- <strong>Asesoría</strong></span>
+                        <div className="grid">
+                            <span className="text-lg pl-3 text-secundary/80 z-20 font-bold">Canales de Comunicación externos</span>
+                            <div className="flex flex-wrap items-center text-center justify-center gap-8 mt-4">
+                                {imageUrls.map((imagen, index) => (
+
+                                    <div key={index} className="bg-white rounded-lg overflow-hidden  shadow-lg border-gray-200 border-2  w-28 h-28">
+                                        <Image
+                                            src={imagen.imagen}
+                                            alt={imagen.nombre}
+                                            width={100}
+                                            height={100}
+                                            className=" w-14 h-16 mx-auto pt-6"
+                                        />
+                                        <div className="p-4">
+                                            <span className="font-bold text-primary">{imagen.nombre}</span>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+
                         <div className="mt-4">
                             <h2 className="text-2xl font-semibold mb-2 border-l-4  border-border pl-3 z-20">Ser Proveedor</h2>
                             <p className="text-lg pl-3 text-secundary/80 z-20">

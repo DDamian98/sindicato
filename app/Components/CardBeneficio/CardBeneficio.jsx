@@ -86,7 +86,7 @@ const CardBeneficio = (idEmpleado) => {
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mx-auto  text-secundary pb-10"
+            className="mx-auto  text-secundary"
         >
             <div className="container mx-auto text-secundary">
                 <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 xl:grid-cols-1 gap-2 place-items-center">

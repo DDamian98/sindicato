@@ -6,6 +6,8 @@ import CuponTotal from '@/app/Components/CuponCard/CuponTotal';
 
 export default function Cupon() {
     const [tipoSeleccionado, setTipoSeleccionado] = useState('Todos');
+    const [productosSeleccionado, setProductosSeleccionado] = useState('Todos');
+    const [promocionSeleccionado, setPromocionSeleccionado] = useState('Todos');
     const [nroEmpleado, setNroEmpleado] = useState('');
     const [Nombre, setNombre] = useState('');
     const [TipoUsuario, setTipoUsuario] = useState('');
@@ -81,6 +83,13 @@ export default function Cupon() {
     const handleCategoryChange = (event) => {
         setTipoSeleccionado(event.target.value);
     };
+
+    const handleProductoChange = (event) => {
+        setProductosSeleccionado(event.target.value);
+    }; const handlePromocionChange = (event) => {
+        setPromocionSeleccionado(event.target.value);
+    };
+
     return (
 
 
@@ -108,8 +117,8 @@ export default function Cupon() {
                             </div>
 
                             <div className='flex flex-col'>
-                                <label htmlFor="producto" className="block text-sm font-medium text-gray-700">Escoge el tipo de cupon:</label>
-                                <select id="producto" name="producto" value="Todos" className="mb-10 text-secundary mt-1 block  pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-bgadmin focus:border-bgadmin sm:text-sm rounded-md">
+                                <label htmlFor="producto" className="block text-sm font-medium text-gray-700">Escoge el producto:</label>
+                                <select id="producto" name="producto" value={productosSeleccionado} onChange={handleProductoChange} className="mb-10 text-secundary mt-1 block  pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-bgadmin focus:border-bgadmin sm:text-sm rounded-md">
                                     <option value="Todos">Todos</option>
                                     {productoUnicos.map((producto, index) => (
                                         <option key={index} value={producto}>{producto}</option>
@@ -119,8 +128,8 @@ export default function Cupon() {
                             </div>
 
                             <div className='flex flex-col'>
-                                <label htmlFor="promocion" className="block text-sm font-medium text-gray-700">Escoge el tipo de cupon:</label>
-                                <select id="promocion" name="promocion" value="Todos" className="mb-10 text-secundary mt-1 block  pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-bgadmin focus:border-bgadmin sm:text-sm rounded-md">
+                                <label htmlFor="promocion" className="block text-sm font-medium text-gray-700">Escoge la promoción:</label>
+                                <select id="promocion" name="promocion" value={promocionSeleccionado} onChange={handlePromocionChange} className="mb-10 text-secundary mt-1 block  pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-bgadmin focus:border-bgadmin sm:text-sm rounded-md">
                                     <option value="Todos">Todos</option>
                                     {promocionUnicos.map((promocion, index) => (
                                         <option key={index} value={promocion}>{promocion}</option>
@@ -130,7 +139,7 @@ export default function Cupon() {
                             </div>
                         </div>
                         <div>
-                            <CuponTotal tipoSeleccionado={tipoSeleccionado} />
+                            <CuponTotal tipoSeleccionado={tipoSeleccionado} productoSeleccionado={productosSeleccionado} promocionSeleccionado={promocionSeleccionado} />
                         </div>
                     </div>
                 </div>

@@ -49,10 +49,15 @@ export default function Dashboard() {
                 </div>
                 <div className='m-1 sd:m-2  '>
                     <div className='flex flex-col p-2  bg-white rounded-lg '>
-                        <h1 className='text-secundary text-2xl text-center py-4'>Sistema de Cupón</h1>
+                        <h1 className='text-bgadmin text-2xl text-center py-4 font-bold '>Programa de Beneficio y Descuento</h1>
                         {TipoUsuario === 'empleado' ? (
                             <>
                                 <CardBeneficio idEmpleado={nroEmpleado} />
+                                <div>
+                                    <CardFelicitacion idEmpleado={nroEmpleado} />
+                                </div>
+                                <h2 className="text-secundary font-bold text-center mb-4 text-xl">Cupónes de descuentos</h2>
+
                                 <div className="text-center flex items-center justify-center flex-wrap flex-col">
                                     <label htmlFor="tipo" className="block text-sm font-medium text-gray-700">Escoge el tipo de cupon:</label>
                                     <select id="tipo" name="tipo" value={tipoSeleccionado} onChange={handleCategoryChange} className="mb-10 text-secundary mt-1 block w-1/2 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-bgadmin focus:border-bgadmin sm:text-sm rounded-md">
@@ -70,9 +75,7 @@ export default function Dashboard() {
                                 <div>
                                     <CuponCard tipoSeleccionado={tipoSeleccionado} user={nroEmpleado} />
                                 </div>
-                                <div>
-                                    <CardFelicitacion idEmpleado={nroEmpleado} />
-                                </div>
+
                             </>
                         ) : null}
 

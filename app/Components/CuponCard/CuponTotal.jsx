@@ -3,7 +3,7 @@ import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import QRCode from 'qrcode';
 
-const CuponTotal = ({ tipoSeleccionado }) => {
+const CuponTotal = ({ tipoSeleccionado, productoSeleccionado, promocionSeleccionado }) => {
     const [cuponesData, setCuponesData] = useState([]);
 
     useEffect(() => {
@@ -33,6 +33,14 @@ const CuponTotal = ({ tipoSeleccionado }) => {
                         tipoSeleccionado === "Todos"
                             ? true
                             : cupones.Tipo === tipoSeleccionado
+                    ).filter((cupones) =>
+                        productoSeleccionado === "Todos"
+                            ? true
+                            : cupones.Producto === productoSeleccionado
+                    ).filter((cupones) =>
+                        promocionSeleccionado === "Todos"
+                            ? true
+                            : cupones.Promocion === promocionSeleccionado
                     );
 
 
@@ -43,7 +51,7 @@ const CuponTotal = ({ tipoSeleccionado }) => {
         };
 
         fetchData();
-    }, [tipoSeleccionado]);
+    }, [tipoSeleccionado, productoSeleccionado, promocionSeleccionado]);
 
     return (
         <div className="container mx-auto text-secundary">
