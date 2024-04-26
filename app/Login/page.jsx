@@ -32,7 +32,6 @@ const Login = () => {
             }
 
             const data = await response.json();
-            console.log(data);
 
             toast.success('Login exitoso', {
                 onClose: () => {
@@ -44,8 +43,6 @@ const Login = () => {
 
                     }
                     if (tipoUsuario === 'proveedor') {
-                        console.log('hola');
-                        console.log(data.user.proveedores[0]);
                         localStorage.setItem('Correo', data.user.proveedores[0].Correo);
                         localStorage.setItem('Empresa', data.user.proveedores[0].Empresa);
                         localStorage.setItem('Nro_celular', data.user.proveedores[0].Nro_celular);

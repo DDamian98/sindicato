@@ -36,8 +36,7 @@ const CuponCard = ({ tipoSeleccionado, user, }) => {
                     ).filter((cupones) =>
                         cupones.Empleado === user
                     );
-                console.log("Usuario:", user);
-                console.log("Tipo:", tipoSeleccionado);
+
 
 
                 setCuponesData(cupones);
@@ -76,29 +75,29 @@ const Card = ({ tipo, promocion, Marca }) => {
             <div className={`w-[300px]  flex flex-col  h-[160px]`}>
                 <div className={`relative transition  duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-md overflow-hidden h-[160px]  w-full `}>
                     <div className="absolute  z-30 top-0 left-[185px] w-1/2 h-1/2 ">
-                        <Image src='/images/Descuento.png' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
+                        <Image src='/images/Descuento.png' alt="Tarjeta Beneficio" fill className=" object-contain"></Image>
                     </div>
                     <div className="absolute  z-30 top-11 left-5 w-[65px] h-[65px] ">
-                        <Image src='/images/Logo_CTM.webp' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
+                        <Image src='/images/Logo_CTM.webp' alt="Tarjeta Beneficio" fill className=" object-contain"></Image>
                     </div>
                     <div className="absolute  z-30 top-4 left-[105px] w-[120px] h-1/2 ">
-                        <Image src='/images/Texto_cupon.png' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
+                        <Image src='/images/Texto_cupon.png' alt="Tarjeta Beneficio" className=" object-contain" fill></Image>
                     </div>
 
                     <div className="absolute  z-20 top-0 right-2 w-[280px] h-full ">
-                        <Image src='/images/Lineas.png' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
+                        <Image src='/images/Lineas.png' alt="Tarjeta Beneficio" fill className=" object-contain"></Image>
                     </div>
                     <div className="absolute  z-40 top-2 left-[240px] w-1/2 h-full ">
                         <span className="text-white font-bold text-xl">{promocion}</span>
                     </div>
                     <div className="absolute top-0 bottom-0 w-[300px] h-full">
-                        <Image src='/images/Fondo_cupon.png' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
+                        <Image src='/images/Fondo_cupon.png' alt="Tarjeta Beneficio" fill className=" object-contain"></Image>
                     </div>
                     <div className="text-center absolute top-[45%] right-[15%] left-[25%]">
                         <span className="text-primary font-bold ">{tipo}</span>
                     </div>
                     <div className="text-center absolute z-50 top-[20%] right-[40%] left-[50%]  w-[30px] h-full">
-                        <Image src={Marca} objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
+                        <Image src={Marca} alt="Tarjeta Beneficio" fill className=" object-contain"></Image>
                     </div>
                 </div>
 

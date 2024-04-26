@@ -6,8 +6,6 @@ import Image from 'next/image';
 
 const QRCodeComponent = ({ UrlText }) => {
 
-    console.log('Hohoerohoer');
-    console.log(UrlText);
 
     return (
 

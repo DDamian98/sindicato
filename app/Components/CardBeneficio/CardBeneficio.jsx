@@ -6,17 +6,21 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import QRCodeComponent from "../QRCodeComponent/QRCodeComponent";
+import CardFelicitacion from "../CardFelicitacion/CardFelicitacion";
 
 const CardBeneficio = (idEmpleado) => {
 
     const [empleadosData, setEmpleadosData] = useState([]);
     const [combinedImageSrc, setCombinedImageSrc] = useState('');
-
+    const [empresaData, setEmpresaData] = useState([]);
+    const [imageEmpresa, setImageEmpresa] = useState('');
+    const [nombreEmpresa, setNombreEmpresa] = useState('');
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const id = "1ksAELSvZG9g4CPA-BVKF7KB3M-j4ZcWnrrkVu6kj1I0";
-                const range = "Registro_empleados!A:J";
+                const range = "Registro_empleados!A:M";
+                const rangeempresa = "EmpresasAfiliadas!A:B";
                 const apiKey = "AIzaSyCOH_ihCt7Q8g3NF_1biASZAs-7cOxoE1E";
                 const response = await fetch(
                     `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${apiKey}`
@@ -34,13 +38,34 @@ const CardBeneficio = (idEmpleado) => {
                         Correo: row[6],
                         Direccion: row[7],
                         Red_social: row[8],
-                        Qr: row[9],
+                        Fecha: row[10],
+                        Reconocimiento: row[11],
+                        Mensaje: row[12],
                     }))
                     .filter((empleados) =>
                         empleados.Nro_empleado === idEmpleado.idEmpleado,
                     );
 
                 setEmpleadosData(empleados);
+                setNombreEmpresa(empleados[0].Empresa);
+
+                const responseCompany = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${rangeempresa}?key=${apiKey}`
+                );
+                const dataEmpresa = await responseCompany.json();
+
+                const empresas = dataEmpresa.values
+                    .slice(1)
+                    .map((row2) => ({
+                        Nombre: row2[0],
+                        Image: row2[1],
+
+                    }))
+                    .filter((empresas) =>
+                        empresas.Nombre === nombreEmpresa,
+                    );
+                setEmpresaData(empresas);
+                setImageEmpresa(empresas[0].Image);
             } catch (error) {
                 console.error("Error al obtener los datos del Excel:", error);
             }
@@ -48,37 +73,10 @@ const CardBeneficio = (idEmpleado) => {
         generateQR(idEmpleado.idEmpleado);
 
         fetchData();
-    }, [idEmpleado]);
 
+    }, [idEmpleado, empresaData, nombreEmpresa, imageEmpresa]);
     const generateQR = async (nroEmpleado) => {
-        /* try {
-             // Genera el QR como Data URL
-             const qrDataUrl = await QRCode.toDataURL(`http://www.ctmseccion1.com/Dashboard/Usuarios/${nroEmpleado}`);
- 
-             const backgroundImageSrc = '/images/QR_CTM.jpg'; // La ruta a la imagen de fondo en el directorio público
-             const qrImage = new Image();
-             qrImage.src = qrDataUrl;
- 
-             qrImage.onload = () => {
-                 const canvas = document.createElement('canvas');
-                 const ctx = canvas.getContext('2d');
- 
-                 // Aquí establecerías las dimensiones del canvas para que coincidan con tu imagen de fondo personalizada
-                 canvas.width = qrImage.width;
-                 canvas.height = qrImage.height;
- 
-                 // Dibuja aquí la imagen de fondo y el QR sobre el canvas
-                 // Suponiendo que tu imagen de fondo ya es del tamaño correcto
-                 ctx.drawImage(qrImage, 0, 0);
- 
-                 // Convierte el contenido del canvas a Data URL
-                 const combinedImageDataUrl = canvas.toDataURL('image/png');
-                 console.log(combinedImageDataUrl);
-                 setCombinedImageSrc(combinedImageDataUrl);
-             };
-         } catch (error) {
-             console.error('Error al generar el código QR:', error);
-         }*/
+
     };
 
     return (
@@ -96,6 +94,10 @@ const CardBeneficio = (idEmpleado) => {
                             Nombre={empleado.Nombre_Apellidos}
                             Empresa={empleado.Empresa}
                             Nro_empleado={empleado.Nro_empleado}
+                            imageEmpresa={imageEmpresa}
+                            Fecha={empleado.Fecha}
+                            Reconocimiento={empleado.Reconocimiento}
+                            Mensaje={empleado.Mensaje}
                         />
                     ))}
                 </div>
@@ -104,35 +106,34 @@ const CardBeneficio = (idEmpleado) => {
     );
 };
 
-const CardB = ({ Nombre, Empresa, Nro_empleado }) => {
+const CardB = ({ Nombre, Empresa, Nro_empleado, imageEmpresa, Fecha, Reconocimiento, Mensaje }) => {
     return (
         <div className="grid grid-cols-1 gap-1 place-content-center">
-
             <div className={`w-[440px] max-[480px]:w-[300px] flex flex-col`}>
                 <div className={`relative transition duration-300 ease-in-out transform hover:-translate-y-1 hover:shadow-xl rounded-md overflow-hidden h-[300px] max-sm:h[280px] w-full `}>
                     <div className="absolute  z-20 top-0 left-0 right-0 w-full h-1/2 ">
-                        <Image src='/images/tarjet.png' objectFit="contain" alt="Tarjeta Beneficio" fill></Image>
+                        <Image src='/images/tarjet.png' alt="Tarjeta Beneficio" fill className=" object-contain"></Image>
                     </div>
                     <div className="absolute top-9 left-0 right-0 w-full h-[250px]   max-[480px]:h-[240px]   max-[480px]:top-12">
-                        <Image src='/images/Fondo.png' objectFit="cover" alt="Tarjeta Beneficio" fill></Image>
+                        <Image src='/images/Fondo.png' alt="Tarjeta Beneficio" fill className=" object-cover"></Image>
                     </div>
                     <div className="absolute bottom-0 left-0 right-0  max-[480px]:hidden w-full h-[180px] max-[480px]:h-[160px] ">
-                        <Image src='/images/Photo.png' objectFit="" alt="Tarjeta" fill></Image>
+                        <Image src='/images/Photo.png' alt="Tarjeta" fill></Image>
                     </div>
                     <div className="absolute bottom-0 min-[480px]:hidden left-0 right-0  w-full h-[150px]">
-                        <Image src='/images/Photo.png' objectFit="" alt="Tarjeta" fill></Image>
+                        <Image src='/images/Photo.png' alt="Tarjeta" fill></Image>
                     </div>
 
                     <div className="absolute bottom-2 left-[16px] right-0 max-[480px]:hidden rounded-full w-[160px] h-[160px] max-[480px]:w-[120px] ">
-                        <Image src='/images/Perfil.jpg' objectFit="cover" alt="Tarjeta" fill className="rounded-full"></Image>
+                        <Image src={imageEmpresa} alt="Tarjeta" fill className="rounded-full"></Image>
                     </div>
                     <div className="absolute bottom-[10px] min-[480px]:hidden left-3 right-0  rounded-full w-[110px] h-[128px]  ">
-                        <Image src='/images/Perfil.jpg' objectFit="cover" alt="Tarjeta" fill className="rounded-full"></Image>
+                        <Image src={imageEmpresa} alt="Tarjeta" fill className="rounded-full"></Image>
                     </div>
 
                     <div className="absolute top-[70px] left-4  w-full h-1/2 text-white">
-                        <input type="text" className=" rounded-lg w-72  max-[480px]:hidden  text-bgadmin font-bold text-sm" value={Nombre} />
-                        <input type="text" className=" rounded-lg w-52  min-[480px]:hidden  text-bgadmin font-bold text-xs" value={Nombre} />
+                        <input type="text" className=" rounded-lg w-72  max-[480px]:hidden  text-bgadmin font-bold text-sm" value={Nombre} readOnly />
+                        <input type="text" className=" rounded-lg w-52  min-[480px]:hidden  text-bgadmin font-bold text-xs" value={Nombre} readOnly />
 
                     </div>
                     <div className="absolute bottom-6 right-2 max-[480px]:hidden w-[80px] h-[80px] max-[480px]:w-[20px] max-[480px]:h-[20px] max-[480px]:bottom-6 max-[480px]:right-1 ">
@@ -160,6 +161,8 @@ const CardB = ({ Nombre, Empresa, Nro_empleado }) => {
                     </div>
                 </div>
             </div>
+            <CardFelicitacion idEmpleado={Nro_empleado} Nombre={Nombre} Fecha={Fecha} Reconocmiento={Reconocimiento} Mensaje={Mensaje} imageEmpresa={imageEmpresa} />
+
         </div>
 
 
