@@ -13,8 +13,7 @@ const CardFelicitacion = ({ idEmpleado, Nombre, Fecha, Reconocmiento, Mensaje, i
     if (todayString === Fecha) {
         prueba = 'Hoy'
     }
-    console.log("Fecha12:", prueba);
-    console.log("Fecha:", Fecha);
+
     return (
         <motion.div
             initial={{ opacity: 0, y: -50 }}
