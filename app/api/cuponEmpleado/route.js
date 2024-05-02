@@ -19,7 +19,6 @@ export async function POST(req, res) {
         });
 
 
-
         const sheets = google.sheets({ version: 'v4', auth });
         const { data } = await sheets.spreadsheets.values.get({
             spreadsheetId: process.env.GOOGLE_SHEET_ID,
