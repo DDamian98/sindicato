@@ -61,6 +61,7 @@ const NoticiaDetails = ({ params }) => {
                     <CardNoticiaId idnoticia={id} />
                 </motion.div>
 
+                <iframe src="https://drive.google.com/file/d/1pKWP6DHz5uASyhDQQrq2yegO_HAEu4P5/preview" width="100%" height="600px" className=" border-none max-w-5xl mx-auto my-4" ></iframe>
 
 
                 {/* Sección de enlaces adicionales */}

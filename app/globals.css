@@ -18,11 +18,15 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-    
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+
+}
+
+
+
+.carousel.carousel-slider .control-arrow {
+  background: #202e55 !important;
+  opacity: 0.8 !important;
 }

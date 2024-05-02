@@ -9,7 +9,7 @@ const CardCurso = ({ tipoSeleccionado }) => {
     const fetchData = async () => {
       try {
         const id = "1ksAELSvZG9g4CPA-BVKF7KB3M-j4ZcWnrrkVu6kj1I0";
-        const range = "Capacitacion!A:D";
+        const range = "Capacitacion!A:E";
         const apiKey = "AIzaSyCOH_ihCt7Q8g3NF_1biASZAs-7cOxoE1E";
         const response = await fetch(
           `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${apiKey}`
@@ -23,6 +23,7 @@ const CardCurso = ({ tipoSeleccionado }) => {
             imagen: row[1],
             descripcion: row[2],
             tipo: row[3],
+            enlace: row[4],
 
           }))
           .filter((capacitacion) =>
@@ -57,6 +58,7 @@ const CardCurso = ({ tipoSeleccionado }) => {
             imagen={capacitacion.imagen}
             descripcion={capacitacion.descripcion}
             onOpenModal={handleOpenModal}
+            enlace={capacitacion.enlace}
             curso={capacitacion}
 
 
@@ -69,6 +71,7 @@ const CardCurso = ({ tipoSeleccionado }) => {
             <h2 className=" text-center text-xl font-bold mb-4">{selectedCurso.nombre}</h2>
             <Image src={selectedCurso.imagen} alt={selectedCurso.nombre} width={300} height={200} objectFit="cover" />
             <p className="mt-4 ">{selectedCurso.descripcion}</p>
+            <a href={selectedCurso.enlace} target="blank__" className="px-4 py-2 my-4 w-1/2 text-center bg-primary text-white rounded-lg hover:bg-primary/90 focus:outline-none focus:ring-4 focus:ring-blue-300 focus:ring-opacity-50 transition duration-300 ease-in-out">Registrate</a>
           </div>
         </Modal>
       )}
@@ -76,7 +79,7 @@ const CardCurso = ({ tipoSeleccionado }) => {
   );
 };
 
-const CursoCard = ({ nombre, imagen, descripcion, onOpenModal, curso }) => {
+const CursoCard = ({ nombre, imagen, descripcion, onOpenModal, enlace, curso }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleCloseModal = () => setIsModalOpen(false);

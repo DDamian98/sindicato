@@ -39,9 +39,9 @@ const CardNoticiaDetail = () => {
     }, []);
 
     return (
-        <div className="grid gap-4 hover:shadow-xl transition-shadow duration-300 overflow-hidden border-2 border-gray-400 my-4">
+        <div className=" gap-4 hover:shadow-xl transition-shadow duration-300 overflow-hidden border-2 border-gray-400 my-4">
             <div className="bg-bgprimary">
-                <h2 className="text-xl font-bold p-4 border-b-2 text-white">NOTICIAS RECIENTES</h2>
+                <h2 className="text-xl font-bold p-4 text-white">NOTICIAS RECIENTES</h2>
             </div>
             {noticiaData.map((noticia, index) => (
                 <Card

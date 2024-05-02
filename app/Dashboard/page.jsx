@@ -39,7 +39,7 @@ export default function Dashboard() {
     return (
 
 
-        <div className='flex bg-gray-200  ' >
+        <div className='flex bg-gray-200 w-screen  ' >
             <NavDashBoard Nombre_Apellidos={Nombre} TipoUsuario={TipoUsuario} />
             <div className=' flex-grow '>
                 <div className='w-full flex flex-col items-center just h-18 shadow-xl justify-center bg-bgadmin'>
@@ -47,7 +47,7 @@ export default function Dashboard() {
                     <h1 className='text-primary text-lg'>Sección 1</h1>
 
                 </div>
-                <div className='m-1 sd:m-2  '>
+                <div className='m-1 sd:m-2 '>
                     <div className='flex flex-col p-2  bg-white rounded-lg '>
                         <h1 className='text-bgadmin text-2xl text-center py-4 font-bold '>Programa de Beneficio y Descuento</h1>
                         {TipoUsuario === 'empleado' ? (
@@ -56,7 +56,7 @@ export default function Dashboard() {
                                 <div>
                                     <CardFelicitacion idEmpleado={nroEmpleado} />
                                 </div>
-                                <h2 className="text-secundary font-bold text-center mb-4 text-xl">Cupónes de descuentos</h2>
+                                <h2 className="text-secundary font-bold text-center mb-4 text-xl">Mis Cupónes de descuentos Adquiridos</h2>
 
                                 <div className="text-center flex items-center justify-center flex-wrap flex-col">
                                     <label htmlFor="tipo" className="block text-sm font-medium text-gray-700">Escoge el tipo de cupon:</label>
@@ -72,7 +72,7 @@ export default function Dashboard() {
                                         <option value="Salud">Salud</option>
                                     </select>
                                 </div>
-                                <div>
+                                <div className=' overflow-y-auto'>
                                     <CuponCard tipoSeleccionado={tipoSeleccionado} user={nroEmpleado} />
                                 </div>
 

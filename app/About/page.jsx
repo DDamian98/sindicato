@@ -58,13 +58,12 @@ const Nosotros = () => {
         <div className=" max-h-screen relative">
           <div className="w-full h-[400px] sm:h-[380px] xl:h-[480px] 2xl:h-[480px] relative">
             <Image
-              src="/images/ctm_capacitación.jpg"
+              src="/images/Banner2.jpeg"
               alt="Banner Nosotros"
               layout="fill" objectFit="cover"
             />
           </div>
           <div className="absolute bottom-0 left-0 right-0  text-white text-center py-4 rounded-b-lg">
-            <h1 className="text-3xl font-semibold text-primary">Nosotros</h1>
           </div>
         </div>
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 my-10 text-secundary md:pt-5">

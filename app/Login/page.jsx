@@ -38,6 +38,8 @@ const Login = () => {
                     if (tipoUsuario === 'empleado') {
                         localStorage.setItem('NroEmpleado', data.user.empleados[0].Nro_empleado);
                         localStorage.setItem('Nombre_Apellidos', data.user.empleados[0].Nombre_Apellidos);
+                        localStorage.setItem('Empresa', data.user.empleados[0].Empresa);
+                        localStorage.setItem('Nro_Telefono', data.user.empleados[0].Nro_celular);
                         localStorage.setItem('TipoUsuario', 'empleado');
                         window.location.href = '/Dashboard';
 
@@ -50,7 +52,7 @@ const Login = () => {
                         window.location.href = '/Dashboard';
                     }
                 },
-                autoClose: 2000, // Espera 2 segundos antes de llamar a onClose
+                autoClose: 500, // Espera 2 segundos antes de llamar a onClose
             });
         } catch (error) {
 

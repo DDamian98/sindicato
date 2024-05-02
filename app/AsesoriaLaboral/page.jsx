@@ -55,7 +55,7 @@ const AsesoriaLaboral = () => {
         <div className=" max-h-screen relative">
           <div className="w-full h-[400px] sm:h-[380px] xl:h-[480px] 2xl:h-[480px] relative">
             <Image
-              src="/images/Alianzas_comerciales.jpg"
+              src="/images/Banner3.jpeg"
               alt="Banner Nosotros"
               layout="fill" objectFit="cover"
             />
@@ -85,10 +85,10 @@ const AsesoriaLaboral = () => {
             </p>
           </div>
         </motion.div>
-        <div className="grid grid-cols-1 md:grid-cols-3 my-10 gap-8">
-          <Image src="/images/Capacitación 1.jpg" alt="Capacitacion" className="mx-auto mb-2 transition duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-border" width={350} height={350} />
-          <Image src="/images/Capacitación 2.jpg" alt="Capacitacion" className="mx-auto mb-2 transition duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-border" width={350} height={350} />
-          <Image src="/images/Capacitación 1.jpg" alt="Capacitacion" className="mx-auto mb-2 transition duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-border" width={350} height={350} />
+        <div className="flex flex-row flex-wrap my-10 gap-8">
+          <Image src="/images/C1.jpeg" alt="Capacitacion" className="mx-auto mb-2 transition duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-border" width={400} height={350} />
+          <Image src="/images/Capacitación 1.jpg" alt="Capacitacion" className="mx-auto mb-2 transition duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-border" width={400} height={350} />
+          <Image src="/images/C2.jpeg" alt="Capacitacion" className="mx-auto mb-2 transition duration-300 ease-in-out hover:scale-105 hover:shadow-md hover:shadow-border" width={400} height={350} />
         </div>
         <motion.div
           initial="hidden"

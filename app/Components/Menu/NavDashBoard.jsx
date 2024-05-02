@@ -27,7 +27,6 @@ const DashboardMenu = ({ Nombre_Apellidos, TipoUsuario }) => {
     } else {
         menuItems = [
             { text: 'Inicio', icon: <IoMdHome className="w-5 h-5" />, link: '/Dashboard' },
-            { text: 'Cupon', icon: <IoIosAlbums className="w-5 h-5" />, link: '/Dashboard/Cupon' },
             { text: 'Cupon Aplicado', icon: <IoIosCash className="w-5 h-5" />, link: '/Dashboard/CuponAplicado' },
             { text: 'Usuarios', icon: <IoMdPerson className="w-5 h-5" />, link: '/Dashboard/Usuarios' },
             { text: 'Salir', icon: <IoIosLogOut className="w-5 h-5" />, link: '/Login' },

@@ -48,18 +48,18 @@ const Empresas = () => {
         setItemsToShow(6);
       }
     };
-
+    console.log(itemsToShow);
     window.addEventListener('resize', handleResize);
     handleResize();
 
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [itemsToShow]);
 
   return (
     <Carousel
-      showArrows={false}
+      showArrows={true}
       infiniteLoop={true}
       autoPlay={true}
       interval={1000}
@@ -70,7 +70,7 @@ const Empresas = () => {
       centerMode={true}
       centerSlidePercentage={100 / itemsToShow}
       swipeable={true}
-      className="p-4 max-w-7xl pb-8"
+      className="p-4 max-w-7xl pb-8 mx-auto text "
     >
       {EmpresasAfiliadas.map((empresa, index) => (
         <CardEmpresas

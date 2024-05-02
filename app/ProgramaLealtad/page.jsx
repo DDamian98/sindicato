@@ -93,7 +93,7 @@ const ProgramaLealtad = () => {
                 <div className=" max-h-screen relative">
                     <div className="w-full h-[400px] sm:h-[380px] xl:h-[480px] 2xl:h-[480px] relative">
                         <Image
-                            src="/images/Alianzas_comerciales.jpg"
+                            src="/images/G1.jpeg"
                             alt="Banner Nosotros"
                             layout="fill" objectFit="cover"
                         />

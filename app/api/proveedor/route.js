@@ -7,8 +7,8 @@ export async function GET(req) {
 
 export async function POST(req) {
     const { email, password } = await req.json();
-    const spreadsheetId = '1ksAELSvZG9g4CPA-BVKF7KB3M-j4ZcWnrrkVu6kj1I0';
-    const apiKey = "AIzaSyCOH_ihCt7Q8g3NF_1biASZAs-7cOxoE1E";
+    const spreadsheetId = process.env.GOOGLE_SHEET_ID;
+    const apiKey = process.env.GOOGLE_API_KEY;
     const range = "Proveedor!A:C";
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
 

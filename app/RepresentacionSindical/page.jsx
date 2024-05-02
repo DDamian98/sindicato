@@ -89,7 +89,7 @@ const RepresentaciónSindical = () => {
 
             </div>
             <div className="mx-auto">
-              <Image src="/images/Capacitación 2.jpg" width={400} height={600} objectFit="cover" alt="Representante sindical"></Image>
+              <Image src="/images/G1.jpeg" width={400} height={600} objectFit="cover" alt="Representante sindical"></Image>
             </div>
           </div>
         </motion.div>

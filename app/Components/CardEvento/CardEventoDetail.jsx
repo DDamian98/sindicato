@@ -15,8 +15,9 @@ const CardEventoDetail = () => {
                     `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${apiKey}`
                 );
                 const data = await response.json();
+                const registros = data.values.slice(1);
 
-                const noticia = data.values.slice(-5).reverse().map((row) => ({
+                const noticia = registros.slice(-5).reverse().map((row) => ({
                     Codigo: row[0],
                     Imagen: row[1],
                     Titulo: row[2],
@@ -34,7 +35,7 @@ const CardEventoDetail = () => {
     }, []);
 
     return (
-        <div className="grid gap-4 hover:shadow-xl transition-shadow duration-300 overflow-hidden border-2 border-gray-400 my-4">
+        <div className=" gap-4 hover:shadow-xl transition-shadow duration-300 overflow-hidden border-2 border-gray-400 my-4">
             <div className="bg-bgprimary">
                 <h2 className="text-xl font-bold p-4 border-b-2 text-white">PROXIMOS EVENTOS</h2>
             </div>
