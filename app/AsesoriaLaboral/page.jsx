@@ -53,11 +53,12 @@ const AsesoriaLaboral = () => {
         variants={containerVariants}
       >
         <div className=" max-h-screen relative">
-          <div className="w-full h-[400px] sm:h-[380px] xl:h-[480px] 2xl:h-[480px] relative">
+          <div className="w-full h-[400px] max-sm:h-[250px] xl:h-[480px] 2xl:h-[480px] relative">
             <Image
-              src="/images/Banner3.jpeg"
+              src="/images2/7.png"
               alt="Banner Nosotros"
-              layout="fill" objectFit="cover"
+              layout="fill"
+
             />
           </div>
 

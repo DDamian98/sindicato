@@ -104,7 +104,7 @@ export default function Cupon() {
                 <div className='m-1 sd:m-2  '>
                     <div className='flex flex-col p-2  bg-white rounded-lg '>
                         <h1 className='text-bgadmin font-bold text-2xl text-center py-4'>Programa de Beneficios y Descuentos</h1>
-                        <a href="#" className='bg-primary p-2 font-bold text-white text-center w-1/2 mx-auto mb-2'>Catálogo Virtual</a>
+                        <a href="https://www.canva.com/design/DAGD6PfOFpY/UygsTxTHyiuql2Wu0Ak9nw/view?utm_content=DAGD6PfOFpY&utm_campaign=designshare&utm_medium=link&utm_source=editor" target='__blank' className='bg-primary p-2 font-bold text-white text-center w-1/2 mx-auto mb-2'>Catálogo Virtual</a>
                         <div className="text-center flex items-center justify-center flex-wrap gap-4 ">
                             <div className='flex flex-col'>
                                 <label htmlFor="tipo" className="block text-sm font-medium text-gray-700">Escoge el tipo de cupon:</label>

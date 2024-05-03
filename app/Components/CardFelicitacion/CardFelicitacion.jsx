@@ -19,7 +19,7 @@ const CardFelicitacion = ({ idEmpleado, Nombre, Fecha, Reconocmiento, Mensaje, i
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="mx-auto  text-secundary pb-10"
+            className="mx-auto  text-secundary "
         >
             {prueba === 'Hoy' ? (
                 <>

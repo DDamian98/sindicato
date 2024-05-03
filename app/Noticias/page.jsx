@@ -54,15 +54,14 @@ const Noticias = () => {
         variants={containerVariants}
       >
         <div className=" max-h-screen relative">
-          <div className="w-full h-[400px] sm:h-[380px] xl:h-[480px] 2xl:h-[480px] relative">
+          <div className="w-full h-[400px] max-sm:h-[250px] xl:h-[480px] 2xl:h-[480px] relative">
             <Image
-              src="/images/Alianzas_comerciales.jpg"
+              src="/images2/Noticias.png"
               alt="Banner Nosotros"
-              layout="fill" objectFit="cover"
+              layout="fill"
             />
           </div>
           <div className="absolute bottom-0 left-0 right-0 text-white text-center py-4 rounded-b-lg bg-gradient-to-t from-black/60 to-transparent">
-            <h1 className="text-4xl font-bold">Noticias</h1>
           </div>
         </div>
       </motion.div>

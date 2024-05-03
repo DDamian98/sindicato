@@ -9,7 +9,7 @@ const CardNoticia = ({ tipoSeleccionado }) => {
         const fetchData = async () => {
             try {
                 const id = "1ksAELSvZG9g4CPA-BVKF7KB3M-j4ZcWnrrkVu6kj1I0";
-                const range = "Noticia!A:D";
+                const range = "Noticia!A:F";
                 const apiKey = "AIzaSyCOH_ihCt7Q8g3NF_1biASZAs-7cOxoE1E";
                 const response = await fetch(
                     `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${apiKey}`
