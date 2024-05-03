@@ -12,7 +12,7 @@ const Representantes = () => {
     const fetchData = async () => {
       try {
         const id = '1ksAELSvZG9g4CPA-BVKF7KB3M-j4ZcWnrrkVu6kj1I0';
-        const range = 'Representates!A:C';
+        const range = 'Representates!A:D';
         const apiKey = 'AIzaSyCOH_ihCt7Q8g3NF_1biASZAs-7cOxoE1E';
         const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${apiKey}`);
         const data = await response.json();
@@ -21,8 +21,9 @@ const Representantes = () => {
         const representantes = data.values.slice(1).map((row) => ({
           imageUrl: row[0], // La primera columna es imageUrl
           nombre: row[1],   // La segunda columna es nombre
-          cargo: row[2],    // La tercera columna es cargo
-        }));
+          cargo: row[2],
+          empresa: row[3]    // La tercera columna es cargo
+        })).filter((representantes) => representantes.empresa === 'Sección 1 CTM');
 
         setRepresentantesData(representantes);
       } catch (error) {
