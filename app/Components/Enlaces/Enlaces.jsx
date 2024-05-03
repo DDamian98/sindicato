@@ -8,10 +8,10 @@ const Enlaces = () => {
       <h2 className='text-2xl pb-4 px-4'>Enlaces de Interés</h2>
       <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-4 place-items-center pb-4'>
         {[
-          { href: '/Capacitacion', src: '/images/curso.png', alt: 'Capacitación', label: 'Capacitación' },
-          { href: '/Noticias', src: '/images/curso.png', alt: 'Noticias', label: 'Noticias' },
-          { href: '/Eventos', src: '/images/curso.png', alt: 'Eventos', label: 'Eventos' },
-          { href: '/AlianzasEstrategicas', src: '/images/curso.png', alt: 'Servicios', label: 'Alianzas' }
+          { href: '/Capacitacion', src: '/images2/13.png', alt: 'Capacitación', label: 'Capacitación' },
+          { href: '/Noticias', src: '/images2/Noticias.png', alt: 'Noticias', label: 'Noticias' },
+          { href: '/Eventos', src: '/images2/7.png', alt: 'Eventos', label: 'Eventos' },
+          { href: '/AlianzasEstrategicas', src: '/images2/14.png', alt: 'Servicios', label: 'Alianzas' }
         ].map((enlace, index) => (
           <a key={index} href={enlace.href} className="relative hover:scale-105 hover:shadow-xl transition duration-300 rounded-lg overflow-hidden">
             <Image src={enlace.src} width={250} height={250} alt={enlace.alt} className="cursor-pointer" />

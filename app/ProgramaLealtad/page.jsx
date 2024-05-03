@@ -8,6 +8,7 @@ import Social from "../Components/Social/Social";
 import Footer from "../Components/Footer/Footer";
 import Beneficios from "../Components/Beneficio/Beneficios";
 import Empresas from "../Components/Empresas Afiliadas/Empresas";
+import Proveedores from "../Components/Empresas Afiliadas/Proveedores";
 
 const ProgramaLealtad = () => {
     const imageUrls = [{
@@ -162,6 +163,7 @@ const ProgramaLealtad = () => {
                             <div className="flex items-center gap-8 flex-wrap justify-center ">
                                 <a href="https://forms.gle/gGKEP9aQfBesU1556 " target="black__" className="bg-red-700 hover:bg-red-600 p-4 text-white w-48 text-center font-bold">Registrate!</a>
                             </div>
+                            <Proveedores />
                         </div>
                     </div>
                 </motion.div>

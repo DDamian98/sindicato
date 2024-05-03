@@ -231,6 +231,7 @@ const Nosotros = () => {
                 <Image src="https://i.postimg.cc/28GFJpfJ/RIDE-CONTROL.png" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
+              <RepresentantesEmpresa Empresa={'RIDE CONTROL MEXICANA'} />
 
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">

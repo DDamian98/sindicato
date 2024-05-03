@@ -87,7 +87,8 @@ export default function Home() {
                 </radialGradient>
               </defs>
             </svg>
-            <div className="flex flex-col mx-auto max-w-7xl py-7 text-center lg:mx-0 lg:flex-row lg:gap-x-6 lg:max-w-none">
+
+            <div className=" flex-col mx-auto max-w-7xl py-7 text-center lg:mx-0 lg:flex-row lg:gap-x-6 lg:max-w-none hidden">
               <div className="flex-auto lg:w-3/4">
                 <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
                   Federación Regional de Trabajadores de México - Sección 1
