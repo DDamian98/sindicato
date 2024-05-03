@@ -136,7 +136,6 @@ const ProgramaLealtad = () => {
                             Ampliamos nuestras categorías de productos y servicios con la finalidad de fortalecer la nueva cultura laboral- Conectando empresas de Querétaro, Guadalajara, Ciudad de México, Argentina, Chile, Perú, Colombia con una gran variedad de productos y servicios.
                         </p>
                         <div className="grid">
-                            <span className="text-lg pl-3 text-secundary/80 z-20 font-bold">Canales de Comunicación externos</span>
                             <div className="flex flex-wrap items-center text-center justify-center gap-8 mt-4">
                                 {imageUrls.map((imagen, index) => (
 
