@@ -28,10 +28,12 @@ const Login = () => {
             });
 
             if (!response.ok) {
+                console.error('Error en la autenticación:', response);
                 throw new Error('Error en la autenticación');
             }
 
             const data = await response.json();
+            console.log('Administrador', data.user);
 
             toast.success('Login exitoso', {
                 onClose: () => {
@@ -50,6 +52,13 @@ const Login = () => {
                         localStorage.setItem('Nro_celular', data.user.proveedores[0].Nro_celular);
                         localStorage.setItem('TipoUsuario', 'proveedor');
                         window.location.href = '/Dashboard';
+                    }
+                    if (tipoUsuario === 'empleadoAdmin') {
+                        localStorage.setItem('Nombre_Apellidos', data.user.nombre);
+                        localStorage.setItem('Correo', data.user.email);
+                        localStorage.setItem('TipoUsuario', 'Admin');
+                        window.location.href = '/Dashboard';
+
                     }
                 },
                 autoClose: 500, // Espera 2 segundos antes de llamar a onClose
@@ -75,6 +84,8 @@ const Login = () => {
                             <select value={tipoUsuario} onChange={(e) => setTipoUsuario(e.target.value)} className="block w-full px-4 py-3 mb-2 border rounded-md text-secundary bg-white">
                                 <option value="empleado">Empleado</option>
                                 <option value="proveedor">Proveedor</option>
+                                <option value="empleadoAdmin">Administrador</option>
+
                             </select>
                         </div>
                         <div>

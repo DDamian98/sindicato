@@ -8,6 +8,7 @@ import CuponCard from '../Components/CuponCard/CuponCard'
 import CardInteresados from '../Components/CardInteresados/page';
 import CardFelicitaacion from '../Components/CardFelicitacion/CardFelicitacion';
 import CardFelicitacion from '../Components/CardFelicitacion/CardFelicitacion';
+import CardEmpleado from '../Components/CardEmpleado/CardEmpleado';
 
 export default function Dashboard() {
     const [tipoSeleccionado, setTipoSeleccionado] = useState('Todos');
@@ -28,6 +29,9 @@ export default function Dashboard() {
         if (localStorage.getItem('TipoUsuario') === 'proveedor') {
             setNombre(localStorage.getItem('Empresa'));
             setNroEmpleado(localStorage.getItem('Correo'));
+        }
+        if (localStorage.getItem('TipoUsuario') === 'Admin') {
+            setNombre(localStorage.getItem('Nombre_Apellidos'));
         }
 
 
@@ -83,6 +87,12 @@ export default function Dashboard() {
                             <>
                                 <h2 className='text-bgadmin font-bold p-4 text-xl'>Empleados Interesados</h2>
                                 <CardInteresados />
+                            </>
+                        ) : null}
+                        {TipoUsuario === 'Admin' ? (
+                            <>
+                                <h2 className='text-bgadmin font-bold p-4 text-xl'>Lista de Empleados</h2>
+                                <CardEmpleado />
                             </>
                         ) : null}
                     </div>

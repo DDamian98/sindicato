@@ -133,10 +133,10 @@ const Nosotros = () => {
           <p className="text-lg pl-3 text-secundary/80 z-20">
             Federación Regional Sección 1 CTM
           </p>
-          <span className="text-2xl pl-3 text-secundary/80 font-bold mt-4" >Sindicato de Industrial de Maquiladoras</span>
+          <span className="text-2xl pl-3 text-secundary/80 font-bold mt-4 text-center" >Sindicato de Industrial de Maquiladoras</span>
           <div className="flex flex-col flex-wrap  justify-center items-center text-center gap-8 mt-4 ">
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold text-2xl">Sección Mann+Hummel</span>
+              <span className="text-secundary font-bold text-xl">Sección Mann+Hummel</span>
               <div className="grid place-content-center place-items-center pt-4 text-center">
                 <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
@@ -144,7 +144,7 @@ const Nosotros = () => {
               <RepresentantesEmpresa Empresa={'MANN+HUMMEL'} />
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">Sección Novem Car</span>
+              <span className="text-secundary font-bold text-xl">Sección Novem Car</span>
               <div className="grid place-content-center place-items-center pt-4">
                 <Image src="https://i.postimg.cc/6pVzB7RH/Novem.jpg" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
@@ -152,52 +152,47 @@ const Nosotros = () => {
               <RepresentantesEmpresa Empresa={'NOVEM'} />
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">Sección Industrias CROWN Montacargas</span>
+              <span className="text-secundary font-bold text-xl">Sección Industrias CROWN Montacargas</span>
               <div className="grid place-content-center place-items-center pt-4">
-
                 <Image src="https://i.postimg.cc/NGm5LRJk/CROWN-Montacargas.jpg " width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
-
+              <RepresentantesEmpresa Empresa={'CROWN'} />
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">Sección FOAM Fabricators</span>
+              <span className="text-secundary font-bold text-xl">Sección FOAM Fabricators</span>
               <div className="grid place-content-center place-items-center pt-4">
-
                 <Image src="https://i.postimg.cc/NjwqNHBb/FOAM.jpg" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
-
+              <RepresentantesEmpresa Empresa={'FOAM'} />
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">Sección MSA</span>
+              <span className="text-secundary font-bold text-xl">Sección MSA</span>
               <div className="grid place-content-center place-items-center pt-4">
-
                 <Image src="https://i.postimg.cc/02DhJyDS/Msa.png" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
-
+              <RepresentantesEmpresa Empresa={'MSA'} />
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">Sección EXCELSIOR</span>
+              <span className="text-secundary font-bold text-xl">Sección EXCELSIOR</span>
               <div className="grid place-content-center place-items-center pt-4">
-
                 <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
 
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">Sección WIELAND</span>
+              <span className="text-secundary font-bold text-xl">Sección WIELAND</span>
               <div className="grid place-content-center place-items-center pt-4">
-
                 <Image src="https://i.postimg.cc/4NWVPz6R/Wieland.png" width={300} height={150} objectFit="cover" alt="Mann+Hummel" className="w-[200px] h-[120px]">
                 </Image>
               </div>
-
+              <RepresentantesEmpresa Empresa={'WIELAND'} />
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">Sección de Ganaderos y Asociados de Querétaro</span>
+              <span className="text-secundary font-bold text-xl">Sección de Ganaderos y Asociados de Querétaro</span>
               <div className="grid place-content-center place-items-center pt-4">
 
                 <Image src="https://i.postimg.cc/Y2WtbkQr/Ganaderos-y-Asociados-de-Quer-taro.png" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
@@ -205,7 +200,7 @@ const Nosotros = () => {
               </div>
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">Sección MANN FILTER</span>
+              <span className="text-secundary font-bold text-xl">Sección MANN FILTER</span>
               <div className="grid place-content-center place-items-center pt-4">
 
                 <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
@@ -213,7 +208,7 @@ const Nosotros = () => {
               </div>
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">Sección AMERICAN MUFFLER</span>
+              <span className="text-secundary font-bold text-xl">Sección AMERICAN MUFFLER</span>
               <div className="grid place-content-center place-items-center pt-4">
 
                 <Image src="https://i.postimg.cc/TYKNrYb0/American-Muffler.png" width={300} height={180} objectFit="cover" alt="Mann+Hummel" className="h-[120px]" >
@@ -223,10 +218,10 @@ const Nosotros = () => {
 
           </div>
 
-          <span className="text-lg pl-3 text-secundary/80 font-bold mt-4" >Sindicato únicos</span>
-          <div className="flex  flex-wrap   text-center gap-8 mt-4 ">
+          <span className="text-2xl pl-3 text-secundary/80 font-bold mt-4 text-center" >Sindicato únicos</span>
+          <div className="flex flex-col flex-wrap  justify-center items-center text-center gap-8 mt-4 ">
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">RIDE CONTROL</span>
+              <span className="text-secundary font-bold text-xl">RIDE CONTROL</span>
               <div className="grid place-content-center place-items-center pt-4 text-center">
                 <Image src="https://i.postimg.cc/28GFJpfJ/RIDE-CONTROL.png" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
@@ -235,27 +230,27 @@ const Nosotros = () => {
 
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">EXPO HORT</span>
+              <span className="text-secundary font-bold text-xl">EXPO HORT</span>
               <div className="grid place-content-center place-items-center pt-4">
                 <Image src="https://i.postimg.cc/fytnP7Vq/EXPOR-HORT.png" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
+              <RepresentantesEmpresa Empresa={'EXPO HORT'} />
 
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">TRACTO CAMIONES EUROPEOS</span>
+              <span className="text-secundary font-bold text-xl">TRACTO CAMIONES EUROPEOS</span>
               <div className="grid place-content-center place-items-center pt-4">
-
                 <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg " width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
+              <RepresentantesEmpresa Empresa={'TRACTO CAMIONES EUROPEOS'} />
 
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">SOLAMEX</span>
+              <span className="text-secundary font-bold text-xl">SOLAMEX</span>
               <div className="grid place-content-center place-items-center pt-2">
-
-                <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={300} height={140} className="h-[120px]" objectFit="cover" alt="Mann+Hummel" >
+                <Image src="https://i.postimg.cc/2S7ySPhZ/SOLAMEX.png" width={300} height={140} className="h-[120px]" objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
 
@@ -264,20 +259,20 @@ const Nosotros = () => {
 
           </div>
 
-          <span className="text-lg pl-3 text-secundary/80 font-bold mt-4" >Organizaciones de Transporte y Materiales</span>
-          <div className="flex flex-wrap  items-center justify-center text-center gap-8 mt-4 ">
+          <span className="text-2xl pl-3 text-secundary/80 font-bold mt-4 text-center " >Organizaciones de Transporte y Materiales</span>
+          <div className="flex flex-col flex-wrap  justify-center items-center text-center gap-8 mt-4 ">
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">Sindicato de Taxistas</span>
+              <span className="text-secundary font-bold text-xl">Sindicato de Taxistas</span>
               <div className="grid place-content-center place-items-center pt-4 text-center">
-                <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
+                <Image src="https://i.postimg.cc/Zqjy1Qvc/ORGANIZACI-N-DE-TAXISTAS.png" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
 
             </div>
             <div className="flex flex-col flex-grow   p-2 duration-300 ease-in-out  ">
-              <span className="text-secundary font-bold">Sindicato de Camiones Materialistas</span>
+              <span className="text-secundary font-bold text-xl">Sindicato de Camiones Materialistas</span>
               <div className="grid place-content-center place-items-center">
-                <Image src="https://i.postimg.cc/Y9BpYsj2/Mann-Hummel.jpg" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
+                <Image src="https://i.postimg.cc/tR8DS1jg/ORGANIZACI-N-DE-CAMIONES-MATERIALISTAS.png" width={300} height={180} objectFit="cover" alt="Mann+Hummel" >
                 </Image>
               </div>
 

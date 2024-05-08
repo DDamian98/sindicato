@@ -24,11 +24,17 @@ const DashboardMenu = ({ Nombre_Apellidos, TipoUsuario }) => {
             { text: 'Salir', icon: <IoIosLogOut className="w-5 h-5" />, link: '/Login' },
 
         ];
-    } else {
+    } if (TipoUsuario === 'proveedor') {
         menuItems = [
             { text: 'Inicio', icon: <IoMdHome className="w-5 h-5" />, link: '/Dashboard' },
             { text: 'Cupon Aplicado', icon: <IoIosCash className="w-5 h-5" />, link: '/Dashboard/CuponAplicado' },
             { text: 'Usuarios', icon: <IoMdPerson className="w-5 h-5" />, link: '/Dashboard/Usuarios' },
+            { text: 'Salir', icon: <IoIosLogOut className="w-5 h-5" />, link: '/Login' },
+
+        ];
+    } else {
+        menuItems = [
+            { text: 'Inicio', icon: <IoMdHome className="w-5 h-5" />, link: '/Dashboard' },
             { text: 'Salir', icon: <IoIosLogOut className="w-5 h-5" />, link: '/Login' },
 
         ];

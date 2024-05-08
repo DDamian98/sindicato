@@ -11,7 +11,6 @@ export async function POST(req) {
     const spreadsheetId = process.env.GOOGLE_SHEET_ID;
     const apiKey = process.env.GOOGLE_API_KEY;
     const range = "Registro_empleados!A:J"; // Asumiendo que el email está en la columna A y la contraseña en la columna B
-    console.log(email);
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
 
     try {

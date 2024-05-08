@@ -6,7 +6,7 @@ import { Inter } from 'next/font/google'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'Confederación de Trabajadores de México',
+  title: 'Federación Regional de Trabajadores de México - Sección 1',
   description: 'El sindicalismo de vanguardia que promueve la “Federación Regional de Trabajadores Sección 1 del Estado de Querétaro CTM”',
 }
 

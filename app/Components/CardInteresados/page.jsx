@@ -7,7 +7,8 @@ import { toast, ToastContainer } from 'react-toastify';
 const CardInteresados = ({ }) => {
     const [empleadosData, setEmpleadosData] = useState([]);
     const [search, setSearch] = useState(""); // Estado para manejar el texto de búsqueda
-
+    const [currentPage, setCurrentPage] = useState(1);
+    const [empleadosPerPage] = useState(10);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -48,11 +49,21 @@ const CardInteresados = ({ }) => {
 
         return () => clearInterval(intervalId);
     }, []);
-    const filteredEmpleados = empleadosData.filter(empleado =>
+
+    const indexOfLastEmpleado = currentPage * empleadosPerPage;
+    const indexOfFirstEmpleado = indexOfLastEmpleado - empleadosPerPage;
+    const currentEmpleados = empleadosData.filter(empleado =>
         empleado.Nombre_Apellidos.toLowerCase().includes(search.toLowerCase()) ||
         empleado.Empresa.toLowerCase().includes(search.toLowerCase()) ||
         empleado.Nro_empledo.includes(search)
-    );
+    ).slice(indexOfFirstEmpleado, indexOfLastEmpleado);
+
+    const paginate = pageNumber => setCurrentPage(pageNumber);
+
+    const pageNumbers = [];
+    for (let i = 1; i <= Math.ceil(empleadosData.length / empleadosPerPage); i++) {
+        pageNumbers.push(i);
+    }
     const handleInterestClick = async (Codigo_Interesado, Nombre_Empleado, Nro_Empleado, Empresa_Empleado, Nro_Telefono, Empresa_Cupon, Producto, Promocion, Tipo, Codigo_Cupon, Marca) => {
         try {
             const response = await fetch('/api/cuponEmpleado', {
@@ -113,7 +124,7 @@ const CardInteresados = ({ }) => {
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
-                                    {filteredEmpleados.map((empleado, index) => (
+                                    {currentEmpleados.map((empleado, index) => (
                                         <tr key={index}>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
                                                 {empleado.Nombre_Apellidos}
@@ -145,6 +156,13 @@ const CardInteresados = ({ }) => {
                                 </tbody>
                             </table>
                         </div>
+                    </div>
+                    <div className="pagination flex justify-center p-4">
+                        {pageNumbers.map(number => (
+                            <button key={number} onClick={() => paginate(number)} className="bg-primary text-white hover:bg-primary/90 p-2 mx-1">
+                                {number}
+                            </button>
+                        ))}
                     </div>
                 </div>
             </div>

@@ -6,10 +6,9 @@ import Nav from "@/app/Components/Menu/Nav";
 import Footer from "@/app/Components/Footer/Footer";
 import Social from "@/app/Components/Social/Social";
 import Enlaces from "@/app/Components/Enlaces/Enlaces";
-import CardEventoId from "@/app/Components/CardEvento/CardEventoId";
-import CardNoticiaId from "@/app/Components/CardNoticia/CardNoticiaId";
+import CardComunicacionId from "@/app/Components/CardComunicacion/CardComunicacionId";
 
-const NoticiaDetails = ({ params }) => {
+const ComunicacionDetails = ({ params }) => {
     const { id } = params
     const containerVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -30,21 +29,7 @@ const NoticiaDetails = ({ params }) => {
             }
         }
     };
-    const fromRightVariants = {
-        offscreen: {
-            x: 150,
-            opacity: 0
-        },
-        onscreen: {
-            x: 0,
-            opacity: 1,
-            transition: {
-                type: "spring",
-                bounce: 0.4,
-                duration: 1.2
-            }
-        }
-    };
+
 
     return (
         <div className="w-full mx-auto bg-white">
@@ -58,11 +43,8 @@ const NoticiaDetails = ({ params }) => {
                     viewport={{ once: true }}
                     variants={fromLeftVariants}
                 >
-                    <CardNoticiaId idnoticia={id} />
+                    <CardComunicacionId idcomunicacion={id} />
                 </motion.div>
-
-
-
                 {/* Sección de enlaces adicionales */}
                 <section className="mt-12">
                     <motion.div
@@ -81,4 +63,4 @@ const NoticiaDetails = ({ params }) => {
     )
 };
 
-export default NoticiaDetails;
+export default ComunicacionDetails;
