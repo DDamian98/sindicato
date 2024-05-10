@@ -69,7 +69,7 @@ const Nosotros = () => {
         </div>
         <div className="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-1  my-10 text-secundary md:pt-5">
           <h2 className="text-2xl font-semibold mb-2 border-l-4  border-border pl-3">Nosotros</h2>
-          <iframe src="https://drive.google.com/file/d/1unCGWXPyZZ3B3Pbgh9IeS9OAuml5hxH7/preview" width="100%" height="600px" className=" border-none max-w-5xl mx-auto my-4" ></iframe>
+          <iframe className=' w-[680px] max-md:w-full mx-auto' width="100%" height="480" src="https://www.youtube.com/embed/nU0hpfRVAlI" title="Secretario General" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
         </div>
       </motion.div>

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import NavDashBoard from '../../Components/Menu/NavDashBoard'
 import CardVentas from '@/app/Components/CardVentas/CardVentas'
+import CardVentasTotal from '@/app/Components/CardVentas/CardVentasTotal';
 
 export default function CuponAplicado() {
     const [nroEmpleado, setNroEmpleado] = useState('');
@@ -36,9 +37,7 @@ export default function CuponAplicado() {
                 <div className='m-1 sd:m-2  '>
                     <div className='flex flex-col p-2  bg-white rounded-lg '>
                         <h1 className='text-bgadmin font-bold text-2xl text-center py-4'>Programa de Beneficios y Descuentos</h1>
-                        <CardVentas />
-
-
+                        {TipoUsuario === 'proveedor' ? <CardVentas /> : <CardVentasTotal />}
                     </div>
                 </div>
             </div>

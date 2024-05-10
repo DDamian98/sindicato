@@ -2,11 +2,9 @@
 import React, { useEffect, useState } from "react";
 import QRCode from 'qrcode';
 import fetch from 'node-fetch';
-import 'react-toastify/dist/ReactToastify.css';
-import { toast, ToastContainer } from 'react-toastify';
-const CardInteresados = ({ }) => {
+const CardVentasTotal = ({ }) => {
     const [empleadosData, setEmpleadosData] = useState([]);
-    const [search, setSearch] = useState(""); // Estado para manejar el texto de búsqueda
+    const [search, setSearch] = useState("");
     const [currentPage, setCurrentPage] = useState(1);
     const [empleadosPerPage] = useState(10);
 
@@ -14,29 +12,23 @@ const CardInteresados = ({ }) => {
         const fetchData = async () => {
             try {
                 const id = "1ksAELSvZG9g4CPA-BVKF7KB3M-j4ZcWnrrkVu6kj1I0";
-                const range = "CuponInteresado!A:L";
+                const range = "CuponVendido!A:K";
                 const apiKey = "AIzaSyCOH_ihCt7Q8g3NF_1biASZAs-7cOxoE1E";
                 const response = await fetch(
                     `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${apiKey}`
                 );
+                console.log('Respuesta:', response);
                 const data = await response.json();
-                const empresa_local = localStorage.getItem('Empresa');
                 const empleados = data.values
                     .slice(1).reverse()
                     .map((row) => ({
-                        Codigo_Interesado: row[0],
-                        Nombre_Apellidos: row[1],
-                        Nro_empledo: row[2],
-                        Empresa: row[3],
-                        Nro_Telefono: row[4],
-                        Estado: row[5],
-                        Empresa_Cupon: row[6],
+                        Nombre_Empleado: row[2],
+                        Nro_Empleado: row[3],
+                        Empresa_Empleado: row[4],
+                        Empresa_Cupon: row[5],
                         Producto: row[7],
-                        Promocion: row[8],
-                        Tipo: row[9],
-                        Codigo_Cupon: row[10],
-                        Marca: row[11]
-                    })).filter((empleados) => empleados.Empresa_Cupon === empresa_local).filter((empleados) => empleados.Estado === "Activo");
+                        Fecha: row[9],
+                    }));
 
                 setEmpleadosData(empleados);
             } catch (error) {
@@ -45,17 +37,18 @@ const CardInteresados = ({ }) => {
         };
 
         fetchData();
-        const intervalId = setInterval(fetchData, 30000);  // Actualiza los datos cada 3 segundos
+        const intervalId = setInterval(fetchData, 3000);  // Actualiza los datos cada 3 segundos
 
         return () => clearInterval(intervalId);
     }, []);
 
+
     const indexOfLastEmpleado = currentPage * empleadosPerPage;
     const indexOfFirstEmpleado = indexOfLastEmpleado - empleadosPerPage;
     const currentEmpleados = empleadosData.filter(empleado =>
-        empleado.Nombre_Apellidos.toLowerCase().includes(search.toLowerCase()) ||
-        empleado.Empresa.toLowerCase().includes(search.toLowerCase()) ||
-        empleado.Nro_empledo.includes(search)
+        empleado.Nombre_Empleado.toLowerCase().includes(search.toLowerCase()) ||
+        empleado.Empresa_Empleado.toLowerCase().includes(search.toLowerCase()) ||
+        empleado.Nro_Empleado.includes(search)
     ).slice(indexOfFirstEmpleado, indexOfLastEmpleado);
 
     const paginate = pageNumber => setCurrentPage(pageNumber);
@@ -64,92 +57,59 @@ const CardInteresados = ({ }) => {
     for (let i = 1; i <= Math.ceil(empleadosData.length / empleadosPerPage); i++) {
         pageNumbers.push(i);
     }
-    const handleInterestClick = async (Codigo_Interesado, Nombre_Empleado, Nro_Empleado, Empresa_Empleado, Nro_Telefono, Empresa_Cupon, Producto, Promocion, Tipo, Codigo_Cupon, Marca) => {
-        try {
-            const response = await fetch('/api/cuponEmpleado', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ Codigo_Interesado, Nombre_Empleado, Nro_Empleado, Empresa_Empleado, Nro_Telefono, Empresa_Cupon, Producto, Promocion, Tipo, Codigo_Cupon, Marca })
-            });
-            if (!response.ok) {
-                throw new Error('Error en la autenticación');
-            }
-            const data = await response.json();
-            toast.success('Cupon asignado al empleado. ', {
-                autoClose: 2000,
-            });
-        } catch (error) {
-            console.error('Error al enviar datos:', error);
-        }
-    };
+
 
     return (
-        <div className="container mx-auto">
-            <ToastContainer />
-
+        <div className="container mx-auto mt-2">
+            <h2 className="text-bgadmin px-4 text-xl font-bold">Cupones Aplicados</h2>
             <div className="flex flex-col flex-wrap p-4 ">
                 <input
                     type="text"
                     placeholder="Buscar empleados..."
-                    className="mb-4 p-2 border rounded w-1/4 max-md:w-1/2 border-bgadmin text-secundary focus:outline-none focus:ring-0 focus:ring-primary focus:border-primary"
+                    className="mb-4 p-2 border rounded w-1/4 border-bgadmin text-secundary focus:outline-none focus:ring-0 focus:ring-primary focus:border-primary"
                     onChange={e => setSearch(e.target.value)}
                 />
-                <div className="-my-2 sm:-mx-6 lg:-mx-8  overflow-x-auto">
-                    <div className="py-2 align-middle inline-blocksm:px-6 lg:px-8">
-                        <div className="shadow  border-b border-gray-200 sm:rounded-lg  w-10">
-                            <table className=" divide-y divide-gray-200 ">
+                <div className="-my-2 sm:-mx-6 lg:-mx-8">
+                    <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
+                        <div className="shadow  border-b border-gray-200 sm:rounded-lg  ">
+                            <table className=" divide-y divide-gray-200  ">
                                 <thead className="bg-gray-50">
                                     <tr>
-                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Nombre del Empleado
-                                        </th>
                                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Nro del Empleado
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Empresa
+                                            Nombre del Empleado
+                                        </th>
+                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                            Empresa Empleado
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                             Producto
                                         </th>
                                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Promoción
+                                            Fecha
                                         </th>
 
-                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
-                                            Acción
-                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
                                     {currentEmpleados.map((empleado, index) => (
                                         <tr key={index}>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
-                                                {empleado.Nombre_Apellidos}
+                                                {empleado.Nro_Empleado}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {empleado.Nro_empledo}
+                                                {empleado.Nombre_Empleado}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {empleado.Empresa}
+                                                {empleado.Empresa_Empleado}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                                 {empleado.Producto}
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                                                {empleado.Promocion}
-                                            </td>
-
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 gap-4 flex">
-                                                <a href={`https://api.whatsapp.com/send?phone=${empleado.Nro_Telefono}`} target="blank__" className="bg-green-500 hover:bg-green-500/90 text-white  p-2 ">Contactar</a>
-                                                <button
-                                                    onClick={() => handleInterestClick(empleado.Codigo_Interesado, empleado.Nombre_Apellidos, empleado.Nro_empledo, empleado.Empresa, empleado.Nro_Telefono, empleado.Empresa_Cupon, empleado.Producto, empleado.Promocion, empleado.Tipo, empleado.Codigo_Cupon, empleado.Marca)}
-                                                    className="bg-primary hover:bg-primary/90 text-white  p-2 "
-                                                >Adquirir
-                                                </button>
-
+                                                {empleado.Fecha}
                                             </td>
                                         </tr>
                                     ))}
@@ -171,4 +131,4 @@ const CardInteresados = ({ }) => {
     );
 };
 
-export default CardInteresados;
+export default CardVentasTotal;

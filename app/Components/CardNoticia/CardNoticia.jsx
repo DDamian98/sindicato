@@ -16,7 +16,7 @@ const CardNoticia = ({ tipoSeleccionado }) => {
                 );
                 const data = await response.json();
 
-                const noticia = data.values.slice(1).map((row) => ({
+                const noticia = data.values.slice(1).reverse().map((row) => ({
                     Codigo: row[0],
                     Imagen: row[1],
                     Titulo: row[2],

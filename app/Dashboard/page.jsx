@@ -60,8 +60,8 @@ export default function Dashboard() {
                                 <div>
                                     <CardFelicitacion idEmpleado={nroEmpleado} />
                                 </div>
-                                <h2 className="text-secundary font-bold text-center mb-4 text-xl">Mis Cupónes de descuentos Adquiridos</h2>
 
+                                <h2 className="text-secundary font-bold text-center mb-4 text-xl">Mis Cupónes de descuentos Adquiridos</h2>
                                 <div className="text-center flex items-center justify-center flex-wrap flex-col">
                                     <label htmlFor="tipo" className="block text-sm font-medium text-gray-700">Escoge el tipo de cupon:</label>
                                     <select id="tipo" name="tipo" value={tipoSeleccionado} onChange={handleCategoryChange} className="mb-10 text-secundary mt-1 block w-1/2 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-bgadmin focus:border-bgadmin sm:text-sm rounded-md">
@@ -85,13 +85,14 @@ export default function Dashboard() {
 
                         {TipoUsuario === 'proveedor' ? (
                             <>
+                                <a href="" target='__blank' className='bg-primary p-2 font-bold text-white text-center w-36 mx-auto mb-2'>Tutorial</a>
                                 <h2 className='text-bgadmin font-bold p-4 text-xl'>Empleados Interesados</h2>
                                 <CardInteresados />
                             </>
                         ) : null}
                         {TipoUsuario === 'Admin' ? (
                             <>
-                                <h2 className='text-bgadmin font-bold p-4 text-xl'>Lista de Empleados</h2>
+                                <h2 className='text-bgadmin font-bold px-4 text-xl'>Lista de Empleados</h2>
                                 <CardEmpleado />
                             </>
                         ) : null}

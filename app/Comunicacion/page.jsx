@@ -106,7 +106,7 @@ const Comunicacion = () => {
                             </div>
                         </div>
                         <div className="grid">
-                            <span className="text-lg pl-3 text-secundary/80 z-20 font-bold">Canales de Comunicación externos</span>
+                            <span className="text-lg pl-3 text-secundary/80 z-20 font-bold">Canales de Comunicación interna</span>
                             <div className="flex flex-wrap  items-center justify-center gap-8 text-center mt-4">
                                 <div className="bg-white rounded-lg overflow-hidden  shadow-lg border-gray-200 border-2 w-28 h-28">
                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="text-primary w-16 h-16 mx-auto pt-6" aria-hidden="true" fill="currentColor">

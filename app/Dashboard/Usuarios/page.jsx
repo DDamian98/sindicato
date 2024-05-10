@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import NavDashBoard from '../../Components/Menu/NavDashBoard'
 import CardEmpleado from '@/app/Components/CardEmpleado/CardEmpleado'
+import CardInteresadosTotal from '@/app/Components/CardInteresados/CardInteresadosTotal';
 
 export default function Usuarios() {
     const [nroEmpleado, setNroEmpleado] = useState('');
@@ -34,8 +35,8 @@ export default function Usuarios() {
                 </div>
                 <div className='m-2 sd:m-2  '>
                     <div className='flex flex-col   bg-white rounded-lg '>
-                        <h1 className='text-secundary text-2xl text-center py-4'>Lista de Empleados</h1>
-                        <CardEmpleado />
+                        <h1 className='text-bgadmin font-bold text-2xl text-center py-4'>Lista de Empleados</h1>
+                        <CardInteresadosTotal />
                     </div>
                 </div>
 

@@ -88,34 +88,8 @@ export default function Home() {
               </defs>
             </svg>
 
-            <div className=" flex-col mx-auto max-w-7xl py-7 text-center lg:mx-0 lg:flex-row lg:gap-x-6 lg:max-w-none hidden">
-              <div className="flex-auto lg:w-3/4">
-                <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                  Federación Regional de Trabajadores de México - Sección 1
-                </h2>
-                <p className="mt-6 px-8 text-lg leading-8 text-gray-300">
-                  Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-                </p>
-                <div className="mt-10 flex items-center justify-center gap-x-6 ">
-                  <a
-                    href="#"
-                    className="rounded-md bg-primary/90 px-3.5 py-2.5 text-lg font-semibold text-white shadow-sm hover:bg-primary/100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"          >
-                    Contactanos
-                  </a>
-                  <a href="#" className="text-lg font-semibold leading-6 py-2.5 text-border border-b-2 border-border">
-                    Servicios <span aria-hidden="true">→</span>
-                  </a>
-                </div>
-              </div>
-              <div className="flex-auto mt-16 lg:w-1/4 lg:mt-0 items-center justify-center">
-                <Image
-                  className="w-full max-w-none rounded-md "
-                  src="/images/Logo_CTM.webp"
-                  alt="Confederación de Trabajadores de México"
-                  width={200}
-                  height={150}
-                />
-              </div>
+            <div className=" max-w-7xl mx-auto  py-7 text-center">
+              <iframe className=' w-[680px] max-md:w-full mx-auto' width="100%" height="480" src="https://www.youtube.com/embed/nU0hpfRVAlI" title="Secretario General" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
           </div>
         </motion.div>

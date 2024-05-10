@@ -4,7 +4,7 @@ import QRCode from 'qrcode';
 import fetch from 'node-fetch';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast, ToastContainer } from 'react-toastify';
-const CardInteresados = ({ }) => {
+const CardInteresadosTotal = ({ }) => {
     const [empleadosData, setEmpleadosData] = useState([]);
     const [search, setSearch] = useState(""); // Estado para manejar el texto de búsqueda
     const [currentPage, setCurrentPage] = useState(1);
@@ -20,7 +20,6 @@ const CardInteresados = ({ }) => {
                     `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${apiKey}`
                 );
                 const data = await response.json();
-                const empresa_local = localStorage.getItem('Empresa');
                 const empleados = data.values
                     .slice(1).reverse()
                     .map((row) => ({
@@ -36,7 +35,7 @@ const CardInteresados = ({ }) => {
                         Tipo: row[9],
                         Codigo_Cupon: row[10],
                         Marca: row[11]
-                    })).filter((empleados) => empleados.Empresa_Cupon === empresa_local).filter((empleados) => empleados.Estado === "Activo");
+                    }));
 
                 setEmpleadosData(empleados);
             } catch (error) {
@@ -88,6 +87,7 @@ const CardInteresados = ({ }) => {
     return (
         <div className="container mx-auto">
             <ToastContainer />
+            <h2 className="text-bgadmin px-4 text-xl font-bold">Empleados Interesados</h2>
 
             <div className="flex flex-col flex-wrap p-4 ">
                 <input
@@ -96,10 +96,10 @@ const CardInteresados = ({ }) => {
                     className="mb-4 p-2 border rounded w-1/4 max-md:w-1/2 border-bgadmin text-secundary focus:outline-none focus:ring-0 focus:ring-primary focus:border-primary"
                     onChange={e => setSearch(e.target.value)}
                 />
-                <div className="-my-2 sm:-mx-6 lg:-mx-8  overflow-x-auto">
-                    <div className="py-2 align-middle inline-blocksm:px-6 lg:px-8">
-                        <div className="shadow  border-b border-gray-200 sm:rounded-lg  w-10">
-                            <table className=" divide-y divide-gray-200 ">
+                <div className="-my-2 sm:-mx-6 lg:-mx-8  overflow-x-auto ">
+                    <div className="py-2 align-middle inline-block sm:px-6 lg:px-8">
+                        <div className="shadow  border-b border-gray-200 sm:rounded-lg  w-10 ">
+                            <table className=" divide-y divide-gray-200  ">
                                 <thead className="bg-gray-50">
                                     <tr>
                                         <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
@@ -118,7 +118,7 @@ const CardInteresados = ({ }) => {
                                             Promoción
                                         </th>
 
-                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        <th scope="col" className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider hidden">
                                             Acción
                                         </th>
                                     </tr>
@@ -142,7 +142,7 @@ const CardInteresados = ({ }) => {
                                                 {empleado.Promocion}
                                             </td>
 
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 gap-4 flex">
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 gap-4 flex hidden">
                                                 <a href={`https://api.whatsapp.com/send?phone=${empleado.Nro_Telefono}`} target="blank__" className="bg-green-500 hover:bg-green-500/90 text-white  p-2 ">Contactar</a>
                                                 <button
                                                     onClick={() => handleInterestClick(empleado.Codigo_Interesado, empleado.Nombre_Apellidos, empleado.Nro_empledo, empleado.Empresa, empleado.Nro_Telefono, empleado.Empresa_Cupon, empleado.Producto, empleado.Promocion, empleado.Tipo, empleado.Codigo_Cupon, empleado.Marca)}
@@ -157,7 +157,7 @@ const CardInteresados = ({ }) => {
                             </table>
                         </div>
                     </div>
-                    <div className="pagination flex justify-center p-4">
+                    <div className="pagination flex  sm:px-6 lg:px-8">
                         {pageNumbers.map(number => (
                             <button key={number} onClick={() => paginate(number)} className="bg-primary text-white hover:bg-primary/90 p-2 mx-1">
                                 {number}
@@ -171,4 +171,4 @@ const CardInteresados = ({ }) => {
     );
 };
 
-export default CardInteresados;
+export default CardInteresadosTotal;
