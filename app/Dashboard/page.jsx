@@ -15,6 +15,8 @@ export default function Dashboard() {
     const [nroEmpleado, setNroEmpleado] = useState('');
     const [Nombre, setNombre] = useState('');
     const [TipoUsuario, setTipoUsuario] = useState('');
+    const [tiposUnicos, setTiposUnicos] = useState([]);
+
 
     useEffect(() => {
         setTipoUsuario(localStorage.getItem('TipoUsuario'));
@@ -33,13 +35,50 @@ export default function Dashboard() {
         if (localStorage.getItem('TipoUsuario') === 'Admin') {
             setNombre(localStorage.getItem('Nombre_Apellidos'));
         }
+        const fetchData = async () => {
+            try {
+                const id = "1ksAELSvZG9g4CPA-BVKF7KB3M-j4ZcWnrrkVu6kj1I0";
+                const range = "Cupon!A:J";
+                const apiKey = "AIzaSyCOH_ihCt7Q8g3NF_1biASZAs-7cOxoE1E";
+                const response = await fetch(
+                    `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${apiKey}`
+                );
+                const data = await response.json();
+                const cupones = data.values
+                    .slice(1)
+                    .map((row) => ({
+                        Codigo: row[0],
+                        Nombre: row[1],
+                        Tipo: row[2],
+                        Producto: row[3],
+                        Promocion: row[4],
+                        Empleado: row[5],
+                        Empresa: row[4],
+                        Estado: row[5],
+                        Marca: row[8],
+                    }));
+
+                const tiposUnicos = new Set();
+                cupones.forEach(cupon => tiposUnicos.add(cupon.Tipo));
+                const tiposArray = Array.from(tiposUnicos);
 
 
-    }, []);
+                setTiposUnicos(tiposArray);
+
+
+            } catch (error) {
+                console.error("Error al obtener los datos del Excel:", error);
+            }
+        };
+
+        fetchData();
+    }, [tipoSeleccionado]);
+
 
     const handleCategoryChange = (event) => {
         setTipoSeleccionado(event.target.value);
     };
+
     return (
 
 
@@ -62,19 +101,21 @@ export default function Dashboard() {
                                 </div>
 
                                 <h2 className="text-secundary font-bold text-center mb-4 text-xl">Mis Cupónes de descuentos Adquiridos</h2>
-                                <div className="text-center flex items-center justify-center flex-wrap flex-col">
-                                    <label htmlFor="tipo" className="block text-sm font-medium text-gray-700">Escoge el tipo de cupon:</label>
-                                    <select id="tipo" name="tipo" value={tipoSeleccionado} onChange={handleCategoryChange} className="mb-10 text-secundary mt-1 block w-1/2 pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-bgadmin focus:border-bgadmin sm:text-sm rounded-md">
-                                        <option value="Todos">Todos</option>
-                                        <option value="Artículo">Artículo</option>
-                                        <option value="Análisis Clinicos">Análisis Clínicos</option>
-                                        <option value="Bebida">Bebida</option>
-                                        <option value="Calzado">Calzado</option>
-                                        <option value="Electrodomestico">Electrodomestico</option>
-                                        <option value="Estudios">Estudios</option>
-                                        <option value="Plomería">Plomería</option>
-                                        <option value="Salud">Salud</option>
-                                    </select>
+                                <div className="text-center flex items-center justify-center flex-wrap gap-4 ">
+                                    <div className='flex flex-col gap-2'>
+                                        <label htmlFor="tipo" className="block text-sm font-medium text-gray-700">Escoge el tipo de cupon:</label>
+                                        <select id="tipo" name="tipo" value={tipoSeleccionado} onChange={handleCategoryChange} className=" text-secundary mt-1 block  pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-bgadmin focus:border-bgadmin sm:text-sm rounded-md">
+                                            <option value="Todos">Todos</option>
+                                            {tiposUnicos.map((tipo, index) => (
+                                                <option key={index} value={tipo}>{tipo}</option>
+                                            ))}
+
+                                        </select>
+                                        <a href="/Dashboard/Cupon" className="mb-4 bg-primary hover:bg-primary/90 text-white p-2 text-center">Obtener Cupones</a>
+
+                                    </div>
+
+
                                 </div>
                                 <div className=' overflow-y-auto'>
                                     <CuponCard tipoSeleccionado={tipoSeleccionado} user={nroEmpleado} />

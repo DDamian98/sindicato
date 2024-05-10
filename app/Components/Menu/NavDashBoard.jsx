@@ -31,7 +31,7 @@ const DashboardMenu = ({ Nombre_Apellidos, TipoUsuario }) => {
             { text: 'Salir', icon: <IoIosLogOut className="w-5 h-5" />, link: '/Login' },
 
         ];
-    } else {
+    } if (TipoUsuario === 'Administrador') {
         menuItems = [
             { text: 'Inicio', icon: <IoMdHome className="w-5 h-5" />, link: '/Dashboard' },
             { text: 'Usuarios Interesados', icon: <IoMdPerson className="w-5 h-5" />, link: '/Dashboard/Usuarios' },
