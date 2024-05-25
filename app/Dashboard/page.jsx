@@ -126,7 +126,7 @@ export default function Dashboard() {
 
                         {TipoUsuario === 'proveedor' ? (
                             <>
-                                <a href="" target='__blank' className='bg-primary p-2 font-bold text-white text-center w-36 mx-auto mb-2'>Tutorial</a>
+                                <a href="https://drive.google.com/file/d/1WBHXFRu1rTnfFosN880ojLclflzlcmzY/view" target='__blank' className='bg-primary p-2 font-bold text-white text-center w-36 mx-auto mb-2'>Tutorial</a>
                                 <h2 className='text-bgadmin font-bold p-4 text-xl'>Empleados Interesados</h2>
                                 <CardInteresados />
                             </>
