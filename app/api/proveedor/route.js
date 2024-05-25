@@ -9,22 +9,25 @@ export async function POST(req) {
     const { email, password } = await req.json();
     const spreadsheetId = process.env.GOOGLE_SHEET_ID;
     const apiKey = process.env.GOOGLE_API_KEY;
-    const range = "Proveedor!A:C";
+    const range = "Registro_proveedor!A:T";
     const url = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${range}?key=${apiKey}`;
 
     try {
         const sheetResponse = await fetch(url);
         const sheetData = await sheetResponse.json();
+        console.log('Sheet data:', sheetData);
         // Buscar las credenciales
         const proveedores = sheetData.values
             .slice(1)
             .map((row) => ({
-                Correo: row[0],
-                Empresa: row[1],
-                Nro_celular: row[2],
+                Marca_Temporal: row[0],
+                Ofrece: row[1],
+                Empresa: row[2],
+                Nro_celular: row[7],
+                Correo: row[8],
             }))
             .filter((proveedores) =>
-                proveedores.Correo === email && proveedores.Empresa === password,
+                proveedores.Correo === email && proveedores.Nro_celular === password,
             );
 
         if (proveedores.length > 0) {

@@ -125,10 +125,10 @@ const CardB = ({ Nombre, Empresa, Nro_empleado, imageEmpresa, Fecha, Reconocimie
                     </div>
 
                     <div className="absolute bottom-2 left-[16px] right-0 max-[480px]:hidden rounded-full w-[160px] h-[160px] max-[480px]:w-[120px] ">
-                        <Image src={imageEmpresa} alt="Tarjeta" fill className="rounded-full"></Image>
+                        <Image src={imageEmpresa} alt="Tarjeta" fill className="rounded-full object-contain p-1"></Image>
                     </div>
                     <div className="absolute bottom-[10px] min-[480px]:hidden left-3 right-0  rounded-full w-[110px] h-[128px]  ">
-                        <Image src={imageEmpresa} alt="Tarjeta" fill className="rounded-full"></Image>
+                        <Image src={imageEmpresa} alt="Tarjeta" fill className="rounded-full object-contain"></Image>
                     </div>
 
                     <div className="absolute top-[70px] left-4  w-full h-1/2 text-white">
