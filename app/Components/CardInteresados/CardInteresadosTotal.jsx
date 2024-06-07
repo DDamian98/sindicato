@@ -143,7 +143,7 @@ const CardInteresadosTotal = ({ }) => {
                                             </td>
 
                                             <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 gap-4 flex hidden">
-                                                <a href={`https://api.whatsapp.com/send?phone=${empleado.Nro_Telefono}`} target="blank__" className="bg-green-500 hover:bg-green-500/90 text-white  p-2 ">Contactar</a>
+                                                <a href={`https://api.whatsapp.com/send?phone=52${empleado.Nro_Telefono}`} target="blank__" className="bg-green-500 hover:bg-green-500/90 text-white  p-2 ">Contactar</a>
                                                 <button
                                                     onClick={() => handleInterestClick(empleado.Codigo_Interesado, empleado.Nombre_Apellidos, empleado.Nro_empledo, empleado.Empresa, empleado.Nro_Telefono, empleado.Empresa_Cupon, empleado.Producto, empleado.Promocion, empleado.Tipo, empleado.Codigo_Cupon, empleado.Marca)}
                                                     className="bg-primary hover:bg-primary/90 text-white  p-2 "
