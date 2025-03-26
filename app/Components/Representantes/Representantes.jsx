@@ -8,7 +8,6 @@ const Representantes = () => {
   const [representantesData, setRepresentantesData] = useState([]);
 
   useEffect(() => {
-    // Función para obtener los datos del Excel desde la API de Google Sheets
     const fetchData = async () => {
       try {
         const id = '1ksAELSvZG9g4CPA-BVKF7KB3M-j4ZcWnrrkVu6kj1I0';
@@ -17,7 +16,6 @@ const Representantes = () => {
         const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${id}/values/${range}?key=${apiKey}`);
         const data = await response.json();
 
-        // Omitir la primera fila que contiene los encabezados
         const representantes = data.values.slice(1).map((row) => ({
           imageUrl: row[0], // La primera columna es imageUrl
           nombre: row[1],   // La segunda columna es nombre
